@@ -47,67 +47,67 @@
 :root {
   --radius: 0.5rem;
 
-  /* Acolhedor terapêutico — areia/terracota/verde sálvia */
-  --background: #faf6f1;          /* areia clara */
-  --foreground: #3d3530;          /* marrom-escuro quente */
+  /* Céu dia × céu noite — turquesa/azul-noite/verde sálvia (V15) */
+  --background: #faf6f1;          /* areia clara (mantém o warm minimalism do fundo) */
+  --foreground: #1a2942;          /* azul-noite profundo — "céu da noite" */
   --card: #ffffff;
-  --card-foreground: #3d3530;
+  --card-foreground: #1a2942;
   --popover: #ffffff;
-  --popover-foreground: #3d3530;
-  --primary: #a05a3c;              /* terracota */
+  --popover-foreground: #1a2942;
+  --primary: #5A95A8;              /* turquesa suave — "céu do dia" */
   --primary-foreground: #faf6f1;
-  --secondary: #f0eadf;            /* areia média */
-  --secondary-foreground: #3d3530;
+  --secondary: #f0eadf;            /* areia média (mantém) */
+  --secondary-foreground: #1a2942;
   --muted: #f4ede1;
-  --muted-foreground: #838179;     /* marrom suave */
-  --accent: #7a8a5b;               /* verde sálvia */
+  --muted-foreground: #4a5a7a;     /* azul-noite suave */
+  --accent: #7a8a5b;               /* verde sálvia (mantém) */
   --accent-foreground: #faf6f1;
   --destructive: #8d4d47;
-  --border: #e3dccd;               /* areia escura */
+  --border: #e3dccd;               /* areia escura (mantém) */
   --input: #e3dccd;
-  --ring: #a05a3c;
-  --chart-1: #a05a3c;
+  --ring: #5A95A8;
+  --chart-1: #5A95A8;
   --chart-2: #7a8a5b;
-  --chart-3: #838179;
+  --chart-3: #4a5a7a;
   --chart-4: #d9d4c5;
   --chart-5: #c8a87e;
   --sidebar: #f4ede1;
-  --sidebar-foreground: #3d3530;
-  --sidebar-primary: #a05a3c;
+  --sidebar-foreground: #1a2942;
+  --sidebar-primary: #5A95A8;
   --sidebar-primary-foreground: #faf6f1;
   --sidebar-accent: #7a8a5b;
   --sidebar-accent-foreground: #faf6f1;
   --sidebar-border: #e3dccd;
-  --sidebar-ring: #a05a3c;
+  --sidebar-ring: #5A95A8;
 }
 
 .dark {
-  --background: #2c2620;
+  --background: #0f1722;           /* navy quase-preto */
   --foreground: #faf6f1;
-  --card: #3d3530;
+  --card: #1a2942;                 /* azul-noite */
   --card-foreground: #faf6f1;
-  --popover: #3d3530;
+  --popover: #1a2942;
   --popover-foreground: #faf6f1;
-  --primary: #c8a87e;
-  --primary-foreground: #2c2620;
-  --secondary: #4a3e36;
+  --primary: #7DB5C8;              /* turquesa mais clara pra dark mode */
+  --primary-foreground: #0f1722;
+  --secondary: #2a3a5c;            /* navy médio */
   --secondary-foreground: #faf6f1;
-  --muted: #4a3e36;
-  --muted-foreground: #d9d4c5;
+  --muted: #2a3a5c;
+  --muted-foreground: #b5c5d9;     /* azul-noite claro pra texto de apoio */
   --accent: #7a8a5b;
   --accent-foreground: #faf6f1;
   --destructive: #8d4d47;
-  --border: #5a4e44;
-  --input: #5a4e44;
-  --ring: #c8a87e;
-  --sidebar: #3d3530;
+  --border: #3a4a6a;               /* navy border */
+  --input: #3a4a6a;
+  --ring: #7DB5C8;
+  --sidebar: #1a2942;
   --sidebar-foreground: #faf6f1;
-  --sidebar-primary: #c8a87e;
-  --sidebar-primary-foreground: #2c2620;
+  --sidebar-primary: #7DB5C8;
+  --sidebar-primary-foreground: #0f1722;
   --sidebar-accent: #7a8a5b;
   --sidebar-accent-foreground: #faf6f1;
-  --sidebar-border: #5a4e44;
-  --sidebar-ring: #c8a87e;
+  --sidebar-border: #3a4a6a;
+  --sidebar-ring: #7DB5C8;
 }
 
 @layer base {
