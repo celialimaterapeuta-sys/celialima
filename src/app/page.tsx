@@ -172,13 +172,19 @@ export default function Home() {
             {contexts.map((ctx, i) => {
               const cfg = bentoConfig[i] ?? { span: "lg:col-span-1", featured: false };
               // Alterna lado da imagem nos cards featured — espelhamento visual
-              const imgRight = i % 2 === 0;
+              // Padrão "encontro no centro": coluna esquerda → imagem à direita,
+              // coluna direita → imagem à esquerda. Mapa manual por posição no bento.
+              // (i=2,3 são compactos — empilham verticalmente, lado não importa)
+              const imgRightMap = [true, false, true, false, false, true, false];
+              const imgRight = imgRightMap[i] ?? true;
 
               return (
                 <FadeIn key={ctx.slug} className={cfg.span} delay={(i % 3) * 0.06}>
                   <Link
                     href={`/contextos/${ctx.slug}`}
-                    className="group glass-card lift-on-hover rounded-xl overflow-hidden flex flex-col md:flex-row h-full min-h-[260px] block"
+                    className={`group glass-card lift-on-hover rounded-xl overflow-hidden flex flex-col ${
+                      cfg.featured ? "md:flex-row" : ""
+                    } h-full min-h-[260px] block`}
                   >
                     {/* Imagem (à direita ou à esquerda, alternando) */}
                     <div
@@ -212,9 +218,9 @@ export default function Home() {
 
                     {/* Conteúdo */}
                     <div
-                      className={`flex-1 p-5 md:p-6 flex flex-col justify-center ${
-                        imgRight ? "md:order-1" : "md:order-2"
-                      }`}
+                      className={`flex-1 p-5 md:p-6 flex flex-col ${
+                        cfg.featured ? "justify-center" : "justify-between"
+                      } ${imgRight ? "md:order-1" : "md:order-2"}`}
                     >
                       <h3
                         className={`text-foreground mb-2 group-hover:text-primary transition-colors ${
