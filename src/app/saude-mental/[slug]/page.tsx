@@ -43,6 +43,7 @@ export default async function ArtigoPage({ params }: { params: Params }) {
   return (
     <div className="flex flex-col">
       <article>
+        {/* Cabeçalho — título, tags, sumário, autor */}
         <section className="border-b border-border">
           <div className="mx-auto max-w-3xl px-6 lg:px-8 py-12 md:py-16">
             <Link
@@ -93,13 +94,28 @@ export default async function ArtigoPage({ params }: { params: Params }) {
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <span>Por Célia Lima</span>
               <span>·</span>
-              <span>{article.dateDisplay}</span>
-              <span>·</span>
               <span>{article.readTime} min de leitura</span>
             </div>
           </div>
         </section>
 
+        {/* IMAGEM DO ARTIGO — antes do texto */}
+        {article.thumbnail && (
+          <section className="border-b border-border">
+            <div className="mx-auto max-w-4xl px-6 lg:px-8 py-8 md:py-10">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-sm bg-muted">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={article.thumbnail}
+                  alt={article.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* CONTEÚDO DO ARTIGO */}
         <section className="border-b border-border">
           <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-20">
             <div
@@ -223,8 +239,19 @@ export default async function ArtigoPage({ params }: { params: Params }) {
                     href={`/saude-mental/${rel.slug}`}
                     className="group flex flex-col"
                   >
+                    {/* Imagem do artigo relacionado */}
+                    {rel.thumbnail && (
+                      <div className="relative aspect-[16/10] mb-3 overflow-hidden rounded-sm bg-muted">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={rel.thumbnail}
+                          alt={rel.title}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
                     <p className="text-xs text-muted-foreground mb-2">
-                      {rel.dateDisplay} · {rel.readTime} min
+                      {rel.readTime} min de leitura
                     </p>
                     <h3
                       className="text-xl text-foreground mb-2 group-hover:text-primary transition-colors leading-snug"

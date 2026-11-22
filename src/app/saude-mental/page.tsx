@@ -113,11 +113,22 @@ export default function SaudeMentalPage() {
                   href={`/saude-mental/${article.slug}`}
                   className="group flex flex-col border-b border-border pb-8 last:border-0"
                 >
+                  {/* Imagem do artigo */}
+                  {article.thumbnail && (
+                    <div className="relative aspect-[16/10] mb-4 overflow-hidden rounded-sm bg-muted">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={article.thumbnail}
+                        alt={article.title}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
                   <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
                     {article.contextLabels[0]}
                   </p>
                   <p className="text-xs text-muted-foreground mb-3">
-                    {article.dateDisplay} · {article.readTime} min
+                    {article.readTime} min de leitura
                   </p>
                   <h2
                     className="text-2xl md:text-[1.65rem] text-foreground mb-3 group-hover:text-primary transition-colors leading-snug"
