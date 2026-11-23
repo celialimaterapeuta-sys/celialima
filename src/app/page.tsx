@@ -32,7 +32,7 @@ const bentoConfig: BentoCfg[] = [
   { span: "lg:col-span-2", featured: true },   // 3 — Autocrítica
   { span: "lg:col-span-2", featured: true },   // 4 — Psicossomáticos
   { span: "lg:col-span-2", featured: true },   // 5 — Produtividade
-  { span: "lg:col-span-4", featured: true },   // 6 — Espiritualidade (wide closer)
+  { span: "lg:col-span-2", featured: true },   // 6 — Espiritualidade
 ];
 
 export default function Home() {
