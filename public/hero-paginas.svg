@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" preserveAspectRatio="xMidYMid slice">
+  <!--
+    Hero sutil para páginas intermediárias.
+    Céu noturno curto com ~80 estrelas (4 tamanhos),
+    2 constelações, 1 galáxia espiral pequena.
+  -->
+  <defs>
+    <linearGradient id="page-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d2640"/>
+      <stop offset="55%" stop-color="#4a3d6b"/>
+      <stop offset="100%" stop-color="#7b6ba8"/>
+    </linearGradient>
+    <radialGradient id="page-glow" cx="80%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#b9a0e0" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#d4a574" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#d4a574" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="page-galaxy" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e6c285" stop-opacity="0.22"/>
+      <stop offset="40%" stop-color="#d4a574" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#8b6db5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="page-star-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8e6" stop-opacity="0.85"/>
+      <stop offset="40%" stop-color="#e6c285" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e6c285" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Céu -->
+  <rect width="1920" height="600" fill="url(#page-sky)"/>
+  <rect width="1920" height="600" fill="url(#page-glow)"/>
+
+  <!-- Galáxia espiral pequena (canto inferior esquerdo) -->
+  <g transform="translate(220, 460) rotate(-15)" opacity="0.6">
+    <ellipse cx="0" cy="0" rx="220" ry="80" fill="url(#page-galaxy)"/>
+    <ellipse cx="0" cy="0" rx="150" ry="50" fill="url(#page-galaxy)" transform="rotate(45)"/>
+    <circle cx="0" cy="0" r="4" fill="#fff8e6" opacity="0.65"/>
+    <circle cx="0" cy="0" r="1.5" fill="#ffffff" opacity="0.9"/>
+    <!-- Pontos do disco galáctico -->
+    <circle cx="-130" cy="-20" r="0.7" fill="#fff8e6" opacity="0.55"/>
+    <circle cx="-90" cy="15" r="0.6" fill="#fff8e6" opacity="0.5"/>
+    <circle cx="-50" cy="-10" r="0.8" fill="#fff8e6" opacity="0.6"/>
+    <circle cx="40" cy="-15" r="0.7" fill="#fff8e6" opacity="0.55"/>
+    <circle cx="80" cy="12" r="0.8" fill="#fff8e6" opacity="0.6"/>
+    <circle cx="130" cy="-8" r="0.6" fill="#fff8e6" opacity="0.5"/>
+    <circle cx="-70" cy="50" r="0.7" fill="#fff8e6" opacity="0.5"/>
+    <circle cx="60" cy="60" r="0.8" fill="#fff8e6" opacity="0.6"/>
+  </g>
+
+  <!-- Estrelas extras na região onde estava a lua (canto sup. direito) -->
+  <g fill="#fff8e6">
+    <circle cx="1500" cy="80" r="1.6" opacity="0.75"/>
+    <circle cx="1560" cy="120" r="1.8" opacity="0.8"/>
+    <circle cx="1620" cy="80" r="1.4" opacity="0.65"/>
+    <circle cx="1680" cy="140" r="1.5" opacity="0.7"/>
+    <circle cx="1740" cy="100" r="1.3" opacity="0.6"/>
+    <circle cx="1600" cy="180" r="1.6" opacity="0.75"/>
+    <circle cx="1660" cy="220" r="1.4" opacity="0.65"/>
+  </g>
+  <g stroke="#e6c285" stroke-width="0.5" opacity="0.4" fill="none">
+    <line x1="1500" y1="80" x2="1560" y2="120"/>
+    <line x1="1560" y1="120" x2="1680" y2="140"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- ESTRELAS                                    -->
+  <!-- ========================================== -->
+
+  <!-- Estrelas-destaque (com glow + cruz) — 2 unidades -->
+  <g>
+    <circle cx="420" cy="140" r="14" fill="url(#page-star-glow)"/>
+    <circle cx="420" cy="140" r="2.0" fill="#fff8e6" opacity="0.95"/>
+    <line x1="420" y1="134" x2="420" y2="146" stroke="#fff8e6" stroke-width="0.6" opacity="0.6"/>
+    <line x1="414" y1="140" x2="426" y2="140" stroke="#fff8e6" stroke-width="0.6" opacity="0.6"/>
+
+    <circle cx="1520" cy="60" r="12" fill="url(#page-star-glow)"/>
+    <circle cx="1520" cy="60" r="2.2" fill="#fff8e6" opacity="0.95"/>
+    <line x1="1520" y1="54" x2="1520" y2="66" stroke="#fff8e6" stroke-width="0.6" opacity="0.6"/>
+    <line x1="1514" y1="60" x2="1526" y2="60" stroke="#fff8e6" stroke-width="0.6" opacity="0.6"/>
+  </g>
+
+  <!-- Estrelas grandes -->
+  <g fill="#fff8e6">
+    <circle cx="180" cy="80" r="1.8" opacity="0.85"/>
+    <circle cx="700" cy="60" r="1.6" opacity="0.75"/>
+    <circle cx="980" cy="180" r="1.9" opacity="0.85"/>
+    <circle cx="1240" cy="100" r="1.7" opacity="0.8"/>
+    <circle cx="1780" cy="140" r="1.6" opacity="0.75"/>
+    <circle cx="320" cy="240" r="1.6" opacity="0.7"/>
+    <circle cx="860" cy="280" r="1.7" opacity="0.75"/>
+    <circle cx="1140" cy="340" r="1.5" opacity="0.7"/>
+    <circle cx="1400" cy="280" r="1.8" opacity="0.8"/>
+    <circle cx="1660" cy="320" r="1.4" opacity="0.65"/>
+    <circle cx="540" cy="200" r="1.5" opacity="0.7"/>
+    <circle cx="780" cy="180" r="1.6" opacity="0.75"/>
+    <circle cx="1080" cy="60" r="1.5" opacity="0.7"/>
+    <circle cx="1320" cy="220" r="1.6" opacity="0.75"/>
+    <circle cx="1820" cy="240" r="1.5" opacity="0.7"/>
+    <circle cx="660" cy="420" r="1.5" opacity="0.7"/>
+    <circle cx="940" cy="440" r="1.4" opacity="0.65"/>
+    <circle cx="1220" cy="420" r="1.5" opacity="0.7"/>
+    <circle cx="1500" cy="440" r="1.6" opacity="0.75"/>
+    <circle cx="1760" cy="420" r="1.5" opacity="0.7"/>
+  </g>
+
+  <!-- Estrelas médias -->
+  <g fill="#f5f3fb">
+    <circle cx="80" cy="200" r="1.0" opacity="0.55"/>
+    <circle cx="260" cy="120" r="1.1" opacity="0.6"/>
+    <circle cx="490" cy="220" r="0.9" opacity="0.5"/>
+    <circle cx="640" cy="180" r="1.0" opacity="0.55"/>
+    <circle cx="820" cy="120" r="1.1" opacity="0.6"/>
+    <circle cx="900" cy="120" r="1.0" opacity="0.55"/>
+    <circle cx="1280" cy="60" r="1.1" opacity="0.6"/>
+    <circle cx="1580" cy="200" r="1.0" opacity="0.55"/>
+    <circle cx="1800" cy="80" r="1.0" opacity="0.55"/>
+    <circle cx="120" cy="340" r="0.9" opacity="0.5"/>
+    <circle cx="380" cy="380" r="1.0" opacity="0.55"/>
+    <circle cx="580" cy="300" r="0.9" opacity="0.5"/>
+    <circle cx="820" cy="380" r="1.0" opacity="0.55"/>
+    <circle cx="1040" cy="500" r="0.9" opacity="0.5"/>
+    <circle cx="1300" cy="500" r="1.0" opacity="0.55"/>
+    <circle cx="1560" cy="380" r="0.9" opacity="0.5"/>
+    <circle cx="1800" cy="500" r="1.0" opacity="0.55"/>
+    <circle cx="60" cy="60" r="1.0" opacity="0.55"/>
+    <circle cx="220" cy="40" r="1.1" opacity="0.6"/>
+    <circle cx="360" cy="60" r="0.9" opacity="0.5"/>
+    <circle cx="540" cy="100" r="1.0" opacity="0.55"/>
+    <circle cx="720" cy="240" r="0.9" opacity="0.5"/>
+    <circle cx="1100" cy="240" r="1.0" opacity="0.55"/>
+    <circle cx="1460" cy="280" r="0.9" opacity="0.5"/>
+    <circle cx="1620" cy="100" r="1.0" opacity="0.55"/>
+    <circle cx="1740" cy="280" r="0.9" opacity="0.5"/>
+    <circle cx="1860" cy="60" r="1.0" opacity="0.55"/>
+    <circle cx="60" cy="460" r="0.9" opacity="0.5"/>
+    <circle cx="280" cy="500" r="1.0" opacity="0.55"/>
+    <circle cx="500" cy="460" r="0.9" opacity="0.5"/>
+    <circle cx="700" cy="500" r="1.0" opacity="0.55"/>
+    <circle cx="900" cy="380" r="0.9" opacity="0.5"/>
+    <circle cx="1120" cy="500" r="1.0" opacity="0.55"/>
+    <circle cx="1340" cy="380" r="0.9" opacity="0.5"/>
+    <circle cx="1560" cy="540" r="1.0" opacity="0.55"/>
+    <circle cx="1780" cy="380" r="0.9" opacity="0.5"/>
+  </g>
+
+  <!-- Estrelas minúsculas (poeira estelar) -->
+  <g fill="#f5f3fb">
+    <circle cx="140" cy="40" r="0.5" opacity="0.4"/>
+    <circle cx="180" cy="180" r="0.6" opacity="0.45"/>
+    <circle cx="240" cy="60" r="0.5" opacity="0.4"/>
+    <circle cx="320" cy="160" r="0.6" opacity="0.45"/>
+    <circle cx="400" cy="40" r="0.5" opacity="0.4"/>
+    <circle cx="460" cy="180" r="0.6" opacity="0.45"/>
+    <circle cx="560" cy="40" r="0.5" opacity="0.4"/>
+    <circle cx="620" cy="120" r="0.6" opacity="0.45"/>
+    <circle cx="700" cy="180" r="0.5" opacity="0.4"/>
+    <circle cx="780" cy="40" r="0.6" opacity="0.45"/>
+    <circle cx="860" cy="200" r="0.5" opacity="0.4"/>
+    <circle cx="940" cy="80" r="0.6" opacity="0.45"/>
+    <circle cx="1020" cy="180" r="0.5" opacity="0.4"/>
+    <circle cx="1100" cy="100" r="0.6" opacity="0.45"/>
+    <circle cx="1180" cy="40" r="0.5" opacity="0.4"/>
+    <circle cx="1260" cy="160" r="0.6" opacity="0.45"/>
+    <circle cx="1340" cy="80" r="0.5" opacity="0.4"/>
+    <circle cx="1420" cy="180" r="0.6" opacity="0.45"/>
+    <circle cx="1500" cy="40" r="0.5" opacity="0.4"/>
+    <circle cx="1580" cy="100" r="0.6" opacity="0.45"/>
+    <circle cx="1660" cy="200" r="0.5" opacity="0.4"/>
+    <circle cx="1740" cy="40" r="0.6" opacity="0.45"/>
+    <circle cx="1820" cy="180" r="0.5" opacity="0.4"/>
+    <circle cx="100" cy="280" r="0.6" opacity="0.45"/>
+    <circle cx="180" cy="380" r="0.5" opacity="0.4"/>
+    <circle cx="260" cy="320" r="0.6" opacity="0.45"/>
+    <circle cx="340" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="420" cy="380" r="0.6" opacity="0.45"/>
+    <circle cx="500" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="620" cy="380" r="0.6" opacity="0.45"/>
+    <circle cx="740" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="820" cy="500" r="0.6" opacity="0.45"/>
+    <circle cx="900" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="980" cy="500" r="0.6" opacity="0.45"/>
+    <circle cx="1060" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="1140" cy="500" r="0.6" opacity="0.45"/>
+    <circle cx="1220" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="1300" cy="500" r="0.6" opacity="0.45"/>
+    <circle cx="1380" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="1460" cy="500" r="0.6" opacity="0.45"/>
+    <circle cx="1540" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="1620" cy="500" r="0.6" opacity="0.45"/>
+    <circle cx="1700" cy="440" r="0.5" opacity="0.4"/>
+    <circle cx="1780" cy="500" r="0.6" opacity="0.45"/>
+    <circle cx="1860" cy="440" r="0.5" opacity="0.4"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- CONSTELAÇÕES                                -->
+  <!-- ========================================== -->
+
+  <!-- Constelação 1: "Trilha" (centro-direita superior) -->
+  <g stroke="#e6c285" stroke-width="0.5" opacity="0.45" fill="none">
+    <line x1="980" y1="180" x2="1080" y2="60"/>
+    <line x1="1080" y1="60" x2="1240" y2="100"/>
+    <line x1="1240" y1="100" x2="1320" y2="220"/>
+    <line x1="1320" y1="220" x2="1520" y2="60"/>
+    <line x1="1520" y1="60" x2="1640" y2="120"/>
+  </g>
+
+  <!-- Constelação 2: "Leque" (canto inferior direito) -->
+  <g stroke="#e6c285" stroke-width="0.5" opacity="0.4" fill="none">
+    <line x1="1140" y1="340" x2="1220" y2="420"/>
+    <line x1="1220" y1="420" x2="1400" y2="280"/>
+    <line x1="1400" y1="280" x2="1500" y2="440"/>
+    <line x1="1500" y1="440" x2="1660" y2="320"/>
+    <line x1="1660" y1="320" x2="1760" y2="420"/>
+  </g>
+
+  <!-- Cruzinhas cintilantes em pontos-chave -->
+  <g stroke="#fff8e6" stroke-width="0.6" opacity="0.6">
+    <line x1="420" y1="138" x2="420" y2="150"/>
+    <line x1="414" y1="144" x2="426" y2="144"/>
+    <line x1="1520" y1="58" x2="1520" y2="70"/>
+    <line x1="1514" y1="64" x2="1526" y2="64"/>
+  </g>
+
+  <!-- Fade-out suave para a cor de fundo da página (borda inferior) -->
+  <rect y="500" width="1920" height="100" fill="#f5f3fb" opacity="0.15"/>
+</svg>

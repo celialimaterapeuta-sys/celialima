@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MessageCircle, Send } from "lucide-react";
+import { PageHero } from "@/components/page-hero";
 
 export default function ContatoPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -18,24 +19,22 @@ export default function ContatoPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-28">
-          <p className="text-xs uppercase tracking-[0.25em] text-primary mb-6">
-            Contato
-          </p>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-6 max-w-3xl"
-            style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
-          >
-            Vamos conversar.
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Se algum texto tocou algo, ou se você sente que é hora de começar a terapia,
-            escreva aqui. Respondo pelo WhatsApp, no tempo que a agenda permite.
-          </p>
-        </div>
-      </section>
+      {/* Hero com céu estrelado */}
+      <PageHero>
+        <p className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
+          Contato
+        </p>
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-6 max-w-3xl"
+          style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
+        >
+          Vamos conversar.
+        </h1>
+        <p className="text-lg text-background/85 leading-relaxed max-w-2xl">
+          Se algum texto tocou algo, ou se você sente que é hora de começar a terapia,
+          escreva aqui. Respondo pelo WhatsApp, no tempo que a agenda permite.
+        </p>
+      </PageHero>
 
       <section className="border-b border-border">
         <div className="mx-auto max-w-5xl px-6 lg:px-8 py-16 md:py-20">

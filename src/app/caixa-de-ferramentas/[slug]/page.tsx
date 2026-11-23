@@ -1,9 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, MessageCircle, BookOpen } from "lucide-react";
 import {
   getPraticas,
   getArticle,
+  getArticleImage,
   getContext,
   getArtigosRelacionados,
   getRelatedArticles,
@@ -39,6 +41,7 @@ export default async function PraticaPage({ params }: { params: Params }) {
   const ctx = article.contexts[0] ? getContext(article.contexts[0]) : undefined;
   const artigosRelacionados = getArtigosRelacionados(article, 3);
   const related = getRelatedArticles(article, 3);
+  const coverImage = getArticleImage(article);
 
   return (
     <div className="flex flex-col">
@@ -99,6 +102,30 @@ export default async function PraticaPage({ params }: { params: Params }) {
             </div>
           </div>
         </section>
+
+        {/* =================================================================
+            IMAGEM EDITORIAL — centralizada, mesma largura da coluna de texto,
+            posicionada entre o cabeçalho e o corpo da prática
+        ================================================================= */}
+        {coverImage && (
+          <section className="border-b border-border">
+            <figure className="mx-auto max-w-3xl px-6 lg:px-8 py-10 md:py-14">
+              <div className="relative w-full aspect-[16/10] overflow-hidden rounded-md bg-muted shadow-[0_2px_8px_-4px_rgb(42_36_64/0.18)]">
+                <Image
+                  src={coverImage}
+                  alt={article.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-[11px] text-muted-foreground text-center tracking-wide">
+                {article.contextLabels[0]} · {article.dateDisplay}
+              </figcaption>
+            </figure>
+          </section>
+        )}
 
         <section className="border-b border-border">
           <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-20">

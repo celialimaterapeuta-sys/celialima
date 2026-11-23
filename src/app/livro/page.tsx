@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BookOpen, Download, FileText } from "lucide-react";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata = {
   title: "Livro — Caminhos do Autoconhecimento",
@@ -10,10 +11,9 @@ export const metadata = {
 export default function LivroPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero do livro */}
-      <section className="border-b border-border bg-muted/20">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-28">
-          <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-center">
+      {/* Hero do livro com céu estrelado */}
+      <PageHero>
+        <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-center">
             <div className="relative">
               <div className="relative aspect-[3/4] w-full max-w-xs mx-auto">
                 <div className="absolute inset-0 -rotate-3 bg-accent/20 rounded-sm shadow-lg" />
@@ -40,19 +40,19 @@ export default function LivroPage() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary mb-5">
+              <p className="text-xs uppercase tracking-[0.25em] text-accent mb-5">
                 Livro gratuito
               </p>
               <h1
-                className="text-4xl md:text-5xl text-foreground leading-[1.1] mb-6"
+                className="text-4xl md:text-5xl text-background leading-[1.1] mb-6"
                 style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
               >
                 Caminhos do Autoconhecimento
               </h1>
-              <p className="text-lg text-muted-foreground italic leading-relaxed mb-6">
+              <p className="text-lg text-background/70 italic leading-relaxed mb-6">
                 Textos de uma trajetória terapêutica — uma reunião dos meus principais artigos publicados
               </p>
-              <p className="text-base text-foreground/85 leading-relaxed mb-8">
+              <p className="text-base text-background/85 leading-relaxed mb-8">
                 Uma coletânea que reúne os meus principais artigos publicados ao longo de mais de
                 uma década de prática clínica. Organizados por áreas da vida —
                 autoconhecimento, amor, família, saúde, trabalho e
@@ -79,8 +79,7 @@ export default function LivroPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* O que tem no livro */}
       <section className="border-b border-border">

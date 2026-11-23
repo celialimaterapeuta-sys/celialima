@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle, MapPin, Video } from "lucide-react";
 import { services } from "@/lib/articles";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata = {
   title: "Atendimento",
@@ -11,35 +12,33 @@ export const metadata = {
 export default function AtendimentoPage() {
   return (
     <div className="flex flex-col">
-      {/* Header */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-28">
-          <p className="text-xs uppercase tracking-[0.25em] text-primary mb-6">
-            Atendimento
+      {/* Hero com céu estrelado */}
+      <PageHero>
+        <p className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
+          Atendimento
+        </p>
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-8 max-w-3xl"
+          style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
+        >
+          Como atuo na caminhada terapêutica.
+        </h1>
+        <div className="space-y-5 text-lg text-background/85 leading-relaxed max-w-3xl">
+          <p>
+            Com mais de 30 anos de experiência em psicoterapias de orientação
+            junguiana e psicosíntese, meu foco é apoiar você a olhar para a
+            própria história com clareza e profundidade. Trabalho com escuta
+            ativa, atenção aos símbolos e ao corpo. Quando fazem sentido pra
+            pessoa, uso como apoio terapêutico os recursos das terapias
+            energéticas e vivências integrativas, acelerando meus pacientes
+            na conquista da saúde física e emocional mais plena.
           </p>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-8 max-w-3xl"
-            style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
-          >
-            Como atuo na caminhada terapêutica.
-          </h1>
-          <div className="space-y-5 text-lg text-foreground/85 leading-relaxed max-w-3xl">
-            <p>
-              Com mais de 30 anos de experiência em psicoterapias de orientação
-              junguiana e psicosíntese, meu foco é apoiar você a olhar para a
-              própria história com clareza e profundidade. Trabalho com escuta
-              ativa, atenção aos símbolos e ao corpo. Quando fazem sentido pra
-              pessoa, uso como apoio terapêutico os recursos das terapias
-              energéticas e vivências integrativas, acelerando meus pacientes
-              na conquista da saúde física e emocional mais plena.
-            </p>
-            <p className="italic text-muted-foreground border-l-2 border-primary pl-4">
-              "Não se trata só de parar de sofrer. Trata-se de virar a pessoa
-              inteira que você veio ser."
-            </p>
-          </div>
+          <p className="italic text-accent border-l-2 border-accent pl-4">
+            "Não se trata só de parar de sofrer. Trata-se de virar a pessoa
+            inteira que você veio ser."
+          </p>
         </div>
-      </section>
+      </PageHero>
 
       {/* Serviços */}
       <section className="border-b border-border bg-muted/20">

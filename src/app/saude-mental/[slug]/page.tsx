@@ -1,9 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, MessageCircle, Wrench } from "lucide-react";
 import {
   getArtigos,
   getArticle,
+  getArticleImage,
   getContext,
   getPraticasRelacionadas,
   getRelatedArticles,
@@ -39,11 +41,14 @@ export default async function ArtigoPage({ params }: { params: Params }) {
   const ctx = article.contexts[0] ? getContext(article.contexts[0]) : undefined;
   const praticasRelacionadas = getPraticasRelacionadas(article, 3);
   const related = getRelatedArticles(article, 3);
+  const coverImage = getArticleImage(article);
 
   return (
     <div className="flex flex-col">
       <article>
-        {/* Cabeçalho — título, tags, sumário, autor */}
+        {/* =================================================================
+            CABEÇALHO — voltar, contexto, título, tags, deck, autor
+        ================================================================= */}
         <section className="border-b border-border">
           <div className="mx-auto max-w-3xl px-6 lg:px-8 py-12 md:py-16">
             <Link
@@ -73,7 +78,6 @@ export default async function ArtigoPage({ params }: { params: Params }) {
               {article.title}
             </h1>
 
-            {/* Tags abaixo do título */}
             {article.tags && article.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-6">
                 {article.tags.map((tag, i) => (
@@ -94,28 +98,40 @@ export default async function ArtigoPage({ params }: { params: Params }) {
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <span>Por Célia Lima</span>
               <span>·</span>
+              <span>{article.dateDisplay}</span>
+              <span>·</span>
               <span>{article.readTime} min de leitura</span>
             </div>
           </div>
         </section>
 
-        {/* IMAGEM DO ARTIGO — antes do texto */}
-        {article.thumbnail && (
+        {/* =================================================================
+            IMAGEM EDITORIAL — centralizada, mesma largura da coluna de texto,
+            posicionada entre o cabeçalho e o corpo do artigo
+        ================================================================= */}
+        {coverImage && (
           <section className="border-b border-border">
-            <div className="mx-auto max-w-4xl px-6 lg:px-8 py-8 md:py-10">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-sm bg-muted">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={article.thumbnail}
+            <figure className="mx-auto max-w-3xl px-6 lg:px-8 py-10 md:py-14">
+              <div className="relative w-full aspect-[16/10] overflow-hidden rounded-md bg-muted shadow-[0_2px_8px_-4px_rgb(42_36_64/0.18)]">
+                <Image
+                  src={coverImage}
                   alt={article.title}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
                 />
               </div>
-            </div>
+              <figcaption className="mt-3 text-[11px] text-muted-foreground text-center tracking-wide">
+                {article.contextLabels[0]} · {article.dateDisplay}
+              </figcaption>
+            </figure>
           </section>
         )}
 
-        {/* CONTEÚDO DO ARTIGO */}
+        {/* =================================================================
+            CORPO DO ARTIGO
+        ================================================================= */}
         <section className="border-b border-border">
           <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-20">
             <div
@@ -239,19 +255,8 @@ export default async function ArtigoPage({ params }: { params: Params }) {
                     href={`/saude-mental/${rel.slug}`}
                     className="group flex flex-col"
                   >
-                    {/* Imagem do artigo relacionado */}
-                    {rel.thumbnail && (
-                      <div className="relative aspect-[16/10] mb-3 overflow-hidden rounded-sm bg-muted">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={rel.thumbnail}
-                          alt={rel.title}
-                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    )}
                     <p className="text-xs text-muted-foreground mb-2">
-                      {rel.readTime} min de leitura
+                      {rel.dateDisplay} · {rel.readTime} min
                     </p>
                     <h3
                       className="text-xl text-foreground mb-2 group-hover:text-primary transition-colors leading-snug"

@@ -1,9 +1,10 @@
 'use client'
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { Search, ArrowRight } from "lucide-react";
+import { Search } from "lucide-react";
 import { getArtigos, contexts } from "@/lib/articles";
+import { ArticleCard } from "@/components/article-card";
+import { PageHero } from "@/components/page-hero";
 
 export default function SaudeMentalPage() {
   const [query, setQuery] = useState("");
@@ -31,33 +32,32 @@ export default function SaudeMentalPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-24">
-          <p className="text-xs uppercase tracking-[0.25em] text-primary mb-6">
-            Publicações
+      {/* Hero editorial com fundo de céu estrelado */}
+      <PageHero>
+        <p className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
+          Publicações
+        </p>
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-8 max-w-4xl"
+          style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
+        >
+          Histórias e reflexões
+          <span className="italic text-accent"> de consultório.</span>
+        </h1>
+        <div className="max-w-3xl space-y-5 text-base md:text-lg text-background/85 leading-relaxed">
+          <p>
+            Em mais de três décadas ouvindo as dores e angústias no meu
+            espaço, decidi transformar as experiências dessa trajetória em
+            conteúdos e artigos que possam ser compartilhados não só com
+            meus pacientes, mas com todos os interessados em alcançar uma
+            vida mais plena e íntegra — num processo de autoconhecimento
+            conduzido com leveza, acolhimento e gentileza.
           </p>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-8 max-w-4xl"
-            style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
-          >
-            Histórias e reflexões
-            <span className="italic text-primary"> de consultório.</span>
-          </h1>
-          <div className="max-w-3xl space-y-5 text-base md:text-lg text-foreground/85 leading-relaxed">
-            <p>
-              Em mais de três décadas ouvindo as dores e angústias no meu
-              espaço, decidi transformar as experiências dessa trajetória em
-              conteúdos e artigos que possam ser compartilhados não só com
-              meus pacientes, mas com todos os interessados em alcançar uma
-              vida mais plena e íntegra — num processo de autoconhecimento
-              conduzido com leveza, acolhimento e gentileza.
-            </p>
-            <p className="italic text-muted-foreground">
-              — Célia Lima
-            </p>
-          </div>
+          <p className="italic text-background/70">
+            — Célia Lima
+          </p>
         </div>
-      </section>
+      </PageHero>
 
       {/* Busca + filtros */}
       <section className="border-b border-border bg-muted/20">
@@ -90,7 +90,7 @@ export default function SaudeMentalPage() {
         </div>
       </section>
 
-      {/* Lista — grade de 3 colunas com cards estilo glass (mesmo DNA visual da home) */}
+      {/* Lista editorial — grid 3 colunas no desktop, glass cards com imagem */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
           {filtered.length === 0 ? (
@@ -106,68 +106,14 @@ export default function SaudeMentalPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filtered.map((article) => (
-                <Link
+                <ArticleCard
                   key={article.slug}
-                  href={`/saude-mental/${article.slug}`}
-                  className="group glass-card lift-on-hover rounded-xl overflow-hidden flex flex-col h-full"
-                >
-                  {/* Imagem do artigo — topo do card */}
-                  {article.thumbnail && (
-                    <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={article.thumbnail}
-                        alt={article.title}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Gradient overlay sutil — mesmo tratamento da home */}
-                      <div
-                        className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  )}
-
-                  {/* Conteúdo */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
-                      {article.contextLabels[0]}
-                    </p>
-                    <p className="text-xs text-muted-foreground mb-3">
-                      {article.readTime} min de leitura
-                    </p>
-                    <h2
-                      className="text-xl text-foreground mb-2 group-hover:text-primary transition-colors leading-snug"
-                      style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
-                    >
-                      {article.title}
-                    </h2>
-
-                    {/* Tags abaixo do título */}
-                    {article.tags && article.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mb-3">
-                        {article.tags.slice(0, 3).map((tag, i) => (
-                          <span
-                            key={i}
-                            className="text-[10px] px-2 py-0.5 bg-primary/10 text-primary/80 border border-primary/20 rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">
-                      {article.summary}
-                    </p>
-
-                    <p className="mt-auto inline-flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                      Ler texto <ArrowRight size={12} />
-                    </p>
-                  </div>
-                </Link>
+                  article={article}
+                  accent="primary"
+                  hrefPrefix="/saude-mental"
+                />
               ))}
             </div>
           )}

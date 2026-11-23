@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata = {
   title: "Sobre",
@@ -11,10 +12,9 @@ export const metadata = {
 export default function SobrePage() {
   return (
     <div className="flex flex-col">
-      {/* Intro */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-28">
-          <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
+      {/* Hero com céu estrelado */}
+      <PageHero>
+        <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
             <div className="relative">
               <div className="relative w-full max-w-xs mx-auto">
                 {/* Foto circular com fundo transparente — sem moldura extra, a própria foto já tem acabamento */}
@@ -32,17 +32,17 @@ export default function SobrePage() {
               </div>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary mb-6">
+              <p className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
                 Sobre
               </p>
               <h1
-                className="text-4xl md:text-5xl text-foreground leading-[1.1] mb-8"
+                className="text-4xl md:text-5xl text-background leading-[1.1] mb-8"
                 style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
               >
                 Célia Lima
-                <span className="block italic text-primary mt-1">Psicoterapeuta</span>
+                <span className="block italic text-accent mt-1">Psicoterapeuta</span>
               </h1>
-              <div className="space-y-5 text-base md:text-lg text-foreground/85 leading-relaxed">
+              <div className="space-y-5 text-base md:text-lg text-background/85 leading-relaxed">
                 <p>
                   Sou psicoterapeuta com mais de 30 anos de prática clínica.
                   Acompanho pessoas em seus processos emocionais com uma escuta
@@ -57,8 +57,8 @@ export default function SobrePage() {
                   da terapia.
                 </p>
                 <p>
-                  Trabalho com <strong>psicoterapia de orientação junguiana
-                  e psicosíntese</strong>, <strong>terapias integrativas</strong>
+                  Trabalho com <strong className="text-accent">psicoterapia de orientação junguiana
+                  e psicosíntese</strong>, <strong className="text-accent">terapias integrativas</strong>
                   {' '}(florais, óleos essenciais, respiração) e uma escuta que
                   integra razão e emoção. Meu foco é ajudar você a reconhecer
                   os movimentos internos que se repetem — e a encontrar,
@@ -66,7 +66,7 @@ export default function SobrePage() {
                 </p>
                 <p>
                   Ao longo dessa trajetória publiquei{" "}
-                  <strong>uma reunião dos meus principais artigos</strong> sobre autoconhecimento, amor,
+                  <strong className="text-accent">uma reunião dos meus principais artigos</strong> sobre autoconhecimento, amor,
                   família, saúde, trabalho e espiritualidade — reunidos hoje
                   neste site e no livro{" "}
                   <em>Caminhos do Autoconhecimento</em>.
@@ -74,8 +74,7 @@ export default function SobrePage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Método */}
       <section className="border-b border-border bg-muted/20">
