@@ -286,8 +286,6 @@ export default function Home() {
                     {artigoDaSemana.summary}
                   </p>
                   <div className="mt-auto flex items-center gap-3 text-xs text-muted-foreground">
-                    <span>{artigoDaSemana.dateDisplay}</span>
-                    <span aria-hidden="true">·</span>
                     <span>{artigoDaSemana.readTime} min de leitura</span>
                   </div>
                 </Link>

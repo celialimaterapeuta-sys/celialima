@@ -40,19 +40,19 @@ export const allArticles = articles as Article[];
 // Mapa slug -> caminho relativo em /public. Para artigos sem imagem local,
 // o helper getArticleImage() retorna o thumbnail remoto (CloudFront).
 const LOCAL_IMAGES: Record<string, string> = {
-  "o-desafio-de-cuidar-de-pais-idosos-2-m6511": "/imagens/dinamica-familiar/01-o-desafio-de-cuidar-de-pais-idosos.jpg",
-  "ausencia-paterna-m5315": "/imagens/dinamica-familiar/02-voce-sente-ausencia-paterna.jpg",
-  "voce-cuida-sozinha-dos-seus-filhos-2-m528": "/imagens/dinamica-familiar/03-voce-cuida-sozinha-dos-seus-filhos.jpg",
-  "competicao-entre-maes-e-filhas-m6189": "/imagens/dinamica-familiar/04-competicao-entre-maes-e-filhas.jpg",
-  "lei-da-palmada-polemica-construtiva-2-m2038": "/imagens/dinamica-familiar/05-lei-da-palmada-polemica-construtiva.jpg",
-  "familia-em-primeiro-lugar-m2919": "/imagens/dinamica-familiar/06-familia-em-primeiro-lugar.jpg",
-  "que-tipo-de-nora-voce-e-2-m2627": "/imagens/dinamica-familiar/07-que-tipo-de-nora-voce-e.jpg",
-  "que-tipo-de-sogra-voce-e-2-m1405": "/imagens/dinamica-familiar/08-que-tipo-de-sogra-voce-e.jpg",
-  "cumplicidade-entre-irmaos-m388": "/imagens/dinamica-familiar/09-cumplicidade-entre-irmaos.jpg",
-  "avos-modernas-sem-perder-a-docura-m1601": "/imagens/dinamica-familiar/10-avos-modernas-sem-perder-a-docura.jpg",
-  "nao-quero-ter-filhos-e-agora-m1427": "/imagens/dinamica-familiar/11-nao-quero-ter-filhos-e-agora.jpg",
-  "como-deixar-a-culpa-de-lado-m154": "/imagens/dinamica-familiar/12-da-para-deixar-a-culpa-de-lado.jpg",
-  "dicas-para-buscar-o-equilibrio-nesse-delicado-relacionamento-m41": "/imagens/dinamica-familiar/13-pais-e-filhos-adolescentes.jpg",
+  "o-desafio-de-cuidar-de-pais-idosos-2-m6511": "/artigos/dinamica-familiar/01-o-desafio-de-cuidar-de-pais-idosos.jpg",
+  "ausencia-paterna-m5315": "/artigos/dinamica-familiar/02-voce-sente-ausencia-paterna.jpg",
+  "voce-cuida-sozinha-dos-seus-filhos-2-m528": "/artigos/dinamica-familiar/03-voce-cuida-sozinha-dos-seus-filhos.jpg",
+  "competicao-entre-maes-e-filhas-m6189": "/artigos/dinamica-familiar/04-competicao-entre-maes-e-filhas.jpg",
+  "lei-da-palmada-polemica-construtiva-2-m2038": "/artigos/dinamica-familiar/05-lei-da-palmada-polemica-construtiva.jpg",
+  "familia-em-primeiro-lugar-m2919": "/artigos/dinamica-familiar/06-familia-em-primeiro-lugar.jpg",
+  "que-tipo-de-nora-voce-e-2-m2627": "/artigos/dinamica-familiar/07-que-tipo-de-nora-voce-e.jpg",
+  "que-tipo-de-sogra-voce-e-2-m1405": "/artigos/dinamica-familiar/08-que-tipo-de-sogra-voce-e.jpg",
+  "cumplicidade-entre-irmaos-m388": "/artigos/dinamica-familiar/09-cumplicidade-entre-irmaos.jpg",
+  "avos-modernas-sem-perder-a-docura-m1601": "/artigos/dinamica-familiar/10-avos-modernas-sem-perder-a-docura.jpg",
+  "nao-quero-ter-filhos-e-agora-m1427": "/artigos/dinamica-familiar/11-nao-quero-ter-filhos-e-agora.jpg",
+  "como-deixar-a-culpa-de-lado-m154": "/artigos/dinamica-familiar/12-da-para-deixar-a-culpa-de-lado.jpg",
+  "dicas-para-buscar-o-equilibrio-nesse-delicado-relacionamento-m41": "/artigos/dinamica-familiar/13-pais-e-filhos-adolescentes.jpg",
 };
 
 /**

@@ -37,9 +37,11 @@ export function PageHero({ children, className = "" }: PageHeroProps) {
           sizes="100vw"
           priority
         />
-        {/* Overlay para legibilidade — preserva estrelas no topo,
-            transiciona para fundo claro na base do hero */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/30 to-background/95" />
+        {/* Véu escuro uniforme — preserva as estrelas, garante contraste
+            do texto branco em TODO o hero (sem clarear a base) */}
+        <div className="absolute inset-0 bg-foreground/35" />
+        {/* Fade suave só na base para transição ao conteúdo (escuro, não claro) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-foreground/20" />
         {/* Tint lilás-dourado sutil */}
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/8 via-transparent to-accent/6" />
         {/* Orbs decorativos — luz suave nas extremidades */}
