@@ -16,7 +16,7 @@ import {
  *  Row 2 — ctx[0] + ctx[1]    (col-span-2 + col-span-2) · featured
  *  Row 3 — ctx[2] + ctx[3]    (col-span-2 + col-span-2) · featured
  *  Row 4 — ctx[4] + ctx[5]    (col-span-2 + col-span-2) · featured
- *  Row 5 — ctx[6]             (col-span-4) · featured wide (fechamento)
+ *  Row 5 — ctx[6] + citação extra (col-span-2 + col-span-2) · featured
  *
  * Imagem alterna a cada card: direita, esquerda, direita, esquerda, ...
  * No tablet (md: 2 cols): mesma lógica de pares (col-span-1)
@@ -32,7 +32,7 @@ const bentoConfig: BentoCfg[] = [
   { span: "lg:col-span-2", featured: true },   // 3 — Autocrítica
   { span: "lg:col-span-2", featured: true },   // 4 — Psicossomáticos
   { span: "lg:col-span-2", featured: true },   // 5 — Produtividade
-  { span: "lg:col-span-4", featured: true },   // 6 — Espiritualidade (wide closer)
+  { span: "lg:col-span-2", featured: true },   // 6 — Espiritualidade
 ];
 
 export default function Home() {
@@ -286,8 +286,6 @@ export default function Home() {
                     {artigoDaSemana.summary}
                   </p>
                   <div className="mt-auto flex items-center gap-3 text-xs text-muted-foreground">
-                    <span>{artigoDaSemana.dateDisplay}</span>
-                    <span aria-hidden="true">·</span>
                     <span>{artigoDaSemana.readTime} min de leitura</span>
                   </div>
                 </Link>

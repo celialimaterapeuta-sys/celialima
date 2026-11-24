@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="bg-limites" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f5f3fb"/>
-      <stop offset="60%" stop-color="#efeaf8"/>
-      <stop offset="100%" stop-color="#ddd5ea"/>
+      <stop offset="0%" stop-color="#f4f5fb"/>
+      <stop offset="60%" stop-color="#edeef8"/>
+      <stop offset="100%" stop-color="#d8dbeb"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg-limites)"/>
   <!-- Linha horizontal com ponto — símbolo de limite e de estar em pé -->
   <g transform="translate(400, 300)">
-    <line x1="-200" y1="0" x2="200" y2="0" stroke="#8b6db5" stroke-width="3" opacity="0.5"/>
-    <circle cx="0" cy="-100" r="14" stroke="#8b6db5" stroke-width="2.5" fill="none" opacity="0.6"/>
-    <line x1="0" y1="-86" x2="0" y2="0" stroke="#8b6db5" stroke-width="2.5" opacity="0.55"/>
+    <line x1="-200" y1="0" x2="200" y2="0" stroke="#3a4a8c" stroke-width="3" opacity="0.5"/>
+    <circle cx="0" cy="-100" r="14" stroke="#3a4a8c" stroke-width="2.5" fill="none" opacity="0.6"/>
+    <line x1="0" y1="-86" x2="0" y2="0" stroke="#3a4a8c" stroke-width="2.5" opacity="0.55"/>
     <!-- pessoas com linhas finas -->
     <g opacity="0.4" stroke="#d4a574" stroke-width="2" fill="none">
       <circle cx="-120" cy="-90" r="10"/>

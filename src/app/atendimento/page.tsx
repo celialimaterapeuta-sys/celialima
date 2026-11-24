@@ -21,7 +21,8 @@ export default function AtendimentoPage() {
           className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-8 max-w-3xl"
           style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
         >
-          Como atuo na caminhada terapêutica.
+          Como atuo na
+          <span className="italic text-accent"> caminhada terapêutica.</span>
         </h1>
         <div className="space-y-5 text-lg text-background/85 leading-relaxed max-w-3xl">
           <p>
