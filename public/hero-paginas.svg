@@ -6,19 +6,19 @@
   -->
   <defs>
     <linearGradient id="page-sky" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2d2640"/>
-      <stop offset="55%" stop-color="#4a3d6b"/>
-      <stop offset="100%" stop-color="#7b6ba8"/>
+      <stop offset="0%" stop-color="#1a2350"/>
+      <stop offset="55%" stop-color="#3a4a8c"/>
+      <stop offset="100%" stop-color="#6478b8"/>
     </linearGradient>
     <radialGradient id="page-glow" cx="80%" cy="20%" r="55%">
-      <stop offset="0%" stop-color="#b9a0e0" stop-opacity="0.30"/>
+      <stop offset="0%" stop-color="#6478b8" stop-opacity="0.28"/>
       <stop offset="60%" stop-color="#d4a574" stop-opacity="0.08"/>
       <stop offset="100%" stop-color="#d4a574" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="page-galaxy" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#e6c285" stop-opacity="0.22"/>
       <stop offset="40%" stop-color="#d4a574" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#8b6db5" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#3a4a8c" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="page-star-glow" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#fff8e6" stop-opacity="0.85"/>
@@ -105,7 +105,7 @@
   </g>
 
   <!-- Estrelas médias -->
-  <g fill="#f5f3fb">
+  <g fill="#f4f5fb">
     <circle cx="80" cy="200" r="1.0" opacity="0.55"/>
     <circle cx="260" cy="120" r="1.1" opacity="0.6"/>
     <circle cx="490" cy="220" r="0.9" opacity="0.5"/>
@@ -145,7 +145,7 @@
   </g>
 
   <!-- Estrelas minúsculas (poeira estelar) -->
-  <g fill="#f5f3fb">
+  <g fill="#f4f5fb">
     <circle cx="140" cy="40" r="0.5" opacity="0.4"/>
     <circle cx="180" cy="180" r="0.6" opacity="0.45"/>
     <circle cx="240" cy="60" r="0.5" opacity="0.4"/>
@@ -224,5 +224,5 @@
   </g>
 
   <!-- Fade-out suave para a cor de fundo da página (borda inferior) -->
-  <rect y="500" width="1920" height="100" fill="#f5f3fb" opacity="0.15"/>
+  <rect y="500" width="1920" height="100" fill="#f4f5fb" opacity="0.15"/>
 </svg>

@@ -32,7 +32,7 @@ const bentoConfig: BentoCfg[] = [
   { span: "lg:col-span-2", featured: true },   // 3 — Autocrítica
   { span: "lg:col-span-2", featured: true },   // 4 — Psicossomáticos
   { span: "lg:col-span-2", featured: true },   // 5 — Produtividade
-  { span: "lg:col-span-2", featured: true },   // 6 — Espiritualidade
+  { span: "lg:col-span-4", featured: true },   // 6 — Espiritualidade (wide closer)
 ];
 
 export default function Home() {
@@ -286,6 +286,8 @@ export default function Home() {
                     {artigoDaSemana.summary}
                   </p>
                   <div className="mt-auto flex items-center gap-3 text-xs text-muted-foreground">
+                    <span>{artigoDaSemana.dateDisplay}</span>
+                    <span aria-hidden="true">·</span>
                     <span>{artigoDaSemana.readTime} min de leitura</span>
                   </div>
                 </Link>

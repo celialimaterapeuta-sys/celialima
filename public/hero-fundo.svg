@@ -1,40 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Céu noturno: lavanda clara -> lilás médio -> roxo profundo -->
+    <!-- Céu noturno: índigo profundo -> azul médio -> azul-acinzentado -->
     <linearGradient id="hero-sky" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1f1a2e"/>
-      <stop offset="35%" stop-color="#2d2640"/>
-      <stop offset="65%" stop-color="#4a3d6b"/>
-      <stop offset="100%" stop-color="#7b6ba8"/>
+      <stop offset="0%" stop-color="#0f1638"/>
+      <stop offset="35%" stop-color="#1a2350"/>
+      <stop offset="65%" stop-color="#3a4a8c"/>
+      <stop offset="100%" stop-color="#6478b8"/>
     </linearGradient>
 
-    <!-- Halo lunar suave -->
+    <!-- Halo lunar suave (mantém pra galáxia e estrelas-destaque) -->
     <radialGradient id="moon-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#f5f3fb" stop-opacity="0.45"/>
-      <stop offset="50%" stop-color="#b9a0e0" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#b9a0e0" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#f4f5fb" stop-opacity="0.40"/>
+      <stop offset="50%" stop-color="#6478b8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#6478b8" stop-opacity="0"/>
     </radialGradient>
 
     <!-- Glow da galáxia espiral -->
     <radialGradient id="galaxy-glow" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#e6c285" stop-opacity="0.40"/>
       <stop offset="35%" stop-color="#d4a574" stop-opacity="0.18"/>
-      <stop offset="75%" stop-color="#8b6db5" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#8b6db5" stop-opacity="0"/>
+      <stop offset="75%" stop-color="#3a4a8c" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#3a4a8c" stop-opacity="0"/>
     </radialGradient>
 
     <!-- Camadas de colinas (silhuetas noturnas) -->
     <linearGradient id="hill-1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3a3354" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#1f1a2e" stop-opacity="0.35"/>
+      <stop offset="0%" stop-color="#2a3470" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0f1638" stop-opacity="0.35"/>
     </linearGradient>
     <linearGradient id="hill-2" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#d4a574" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#3a3354" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#2a3470" stop-opacity="0.30"/>
     </linearGradient>
     <linearGradient id="hill-3" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1f1a2e" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#0e0a1c" stop-opacity="0.55"/>
+      <stop offset="0%" stop-color="#0f1638" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#050a1c" stop-opacity="0.55"/>
     </linearGradient>
 
     <!-- Glow para estrelas brilhantes -->
@@ -151,7 +151,7 @@
   </g>
 
   <!-- Nível 3: estrelas pequenas (densas) -->
-  <g fill="#f5f3fb">
+  <g fill="#f4f5fb">
     <circle cx="140" cy="60" r="1.0" opacity="0.6"/>
     <circle cx="220" cy="280" r="1.1" opacity="0.65"/>
     <circle cx="340" cy="340" r="0.9" opacity="0.55"/>
@@ -195,7 +195,7 @@
   </g>
 
   <!-- Nível 4: estrelas minúsculas (poeira estelar densa) -->
-  <g fill="#f5f3fb">
+  <g fill="#f4f5fb">
     <circle cx="50" cy="40" r="0.5" opacity="0.4"/>
     <circle cx="90" cy="80" r="0.6" opacity="0.45"/>
     <circle cx="160" cy="180" r="0.5" opacity="0.4"/>

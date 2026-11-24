@@ -1,32 +1,37 @@
-PACOTE DE ALTERAÇÕES — Site Célia Lima (VERSÃO 4 — sem lua) ✨
-==============================================================
+PACOTE DE ALTERAÇÕES — Site Célia Lima (VERSÃO 5 — Azul-Índigo) 🌌
+==================================================================
 Inclui TODAS as alterações feitas até agora.
 
-PRINCIPAIS MUDANÇAS DESTA VERSÃO (V4):
-- Lua removida do hero-fundo.svg e hero-paginas.svg
-- Estrelas extras adicionadas na região onde a lua estava (canto sup. direito)
-- Pequena constelação adicional para preencher o espaço
+MUDANÇA DESTA VERSÃO (V5):
+- Primary trocado de lilás (#8b6db5) para AZUL-ÍNDIGO (#3a4a8c)
+- Background: azul-acinzentado muito claro (#f4f5fb)
+- Foreground: índigo quase preto (#0f1638) — mais profundo
+- Accent: DOURADO ÂMBAR (#d4a574) — MANTIDO (contraste perfeito)
+- Hero com gradiente índigo profundo (não apaga no mobile!)
+- Dark mode com índigo noturno profundo (#0f1638)
+- SVGs dos 7 contextos atualizados para tons índigo
+- Hero-fundo.svg e hero-paginas.svg com gradiente azul-índigo profundo
 
 RESUMO DE TODAS AS ALTERAÇÕES DESDE O INÍCIO:
 
-1. PALETA DE CORES
-   - Background: lavanda muito clara #f5f3fb
-   - Foreground: roxo-azulado escuro (noite) #2a2440
-   - Primary (lilás): #8b6db5
-   - Accent (dourado âmbar): #d4a574 ← complementar do lilás
-   - Dark mode: roxo noturno profundo
+1. PALETA DE CORES (V5 — atual)
+   - Background: azul-acinzentado muito claro #f4f5fb
+   - Foreground: índigo quase preto #0f1638
+   - Primary (azul-índigo): #3a4a8c
+   - Accent (dourado âmbar): #d4a574 ← complementar perfeito do índigo
+   - Dark mode: índigo noturno profundo
 
-2. HERO DA HOME
-   - Céu noturno ESCURO (não mais claro)
+2. HERO DA HOME (V5)
+   - Céu noturno ESCURO em azul-índigo profundo (não cinza no mobile!)
    - 150+ estrelas em 4 tamanhos (poeira estelar → destaque com cruz)
    - 6 constelações com linhas douradas conectando estrelas
-   - 1 galáxia espiral no canto inferior esquerdo (com glow dourado-lilás)
-   - SEM LUA (removida nesta versão)
+   - 1 galáxia espiral no canto inferior esquerdo
+   - SEM LUA
    - Títulos em branco/claro com alto contraste
    - Detalhes em itálico em dourado (ex: "pensar a vida")
 
-3. PÁGINAS INTERMEDIÁRIAS (sobre, contato, atendimento, livro, publicações, caixa-de-ferramentas)
-   - Hero com céu noturno + 80+ estrelas + 3 constelações + 1 galáxia sutil
+3. PÁGINAS INTERMEDIÁRIAS
+   - Hero com céu índigo + 80+ estrelas + 3 constelações + 1 galáxia sutil
    - SEM LUA
    - Títulos em branco com acentos dourados
 
@@ -34,33 +39,12 @@ RESUMO DE TODAS AS ALTERAÇÕES DESDE O INÍCIO:
    - Grid de 3 colunas no desktop, 1 no mobile
    - Glass-card com imagem no topo
    - 13 imagens novas do contexto Dinâmica Familiar
-   - Fallback automático para thumbnails do CloudFront
 
 5. ARTIGOS E PRÁTICAS
    - Imagem editorial centralizada entre o cabeçalho e o texto
-   - Mesma largura da coluna de texto (max-w-3xl)
 
 6. BENTO DA HOME
    - Cards alternando direita-esquerda-direita-esquerda-...
-
-CONTEÚDO DO PACOTE:
-
-- public/imagens/dinamica-familiar/   (13 imagens novas)
-- public/hero-fundo.svg                (recriado SEM LUA)
-- public/hero-paginas.svg              (recriado SEM LUA)
-- public/contextos/*.svg               (18 SVGs atualizados)
-- src/components/article-card.tsx      (NOVO)
-- src/components/page-hero.tsx          (NOVO)
-- src/lib/articles.ts                  (mapa slug→imagem)
-- src/app/globals.css                  (paleta lilás+dourado)
-- src/app/page.tsx                     (hero escuro)
-- src/app/saude-mental/*.tsx
-- src/app/caixa-de-ferramentas/*.tsx
-- src/app/sobre/page.tsx
-- src/app/contato/page.tsx
-- src/app/atendimento/page.tsx
-- src/app/livro/page.tsx
-- next.config.ts                       (liberado CloudFront)
 
 COMO APLICAR:
 
@@ -72,10 +56,7 @@ COMO APLICAR:
 3. No terminal, dentro da pasta do projeto:
 
    git add .
-   git commit -m "feat: paleta lilás+dourado + céu estrelado (sem lua) + imagens editoriais"
-   git push origin main
+   git commit -m "feat: paleta azul-índigo + dourado com céu profundo"
+   git push origin v3-lilas-dourado  # ou sua branch
 
 4. A Vercel detecta e faz deploy automático.
-   Acompanhe em: https://vercel.com/dashboard
-
-5. Quando Ready, acesse: https://www.celialima.com.br

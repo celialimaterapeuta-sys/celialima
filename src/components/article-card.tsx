@@ -35,7 +35,7 @@ export function ArticleCard({
   return (
     <Link
       href={`${hrefPrefix}/${article.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl glass-card lift-on-hover h-full"
+      className="group flex flex-col overflow-hidden rounded-md glass-card lift-on-hover h-full"
     >
       {/* Imagem no topo — proporção 4:5 para os com foto editorial, 16:10 para os remotos */}
       <div className={`relative w-full overflow-hidden ${isLocal ? "aspect-[4/5]" : "aspect-[16/10]"} bg-muted`}>
@@ -51,13 +51,15 @@ export function ArticleCard({
       </div>
 
       <div className="flex flex-col flex-1 p-5 md:p-6">
-        {/* Linha de metadados — contextLabel · tempo de leitura (sem data) */}
+        {/* Linha de metadados — contextLabel · data · tempo de leitura */}
         <p className={`text-[11px] uppercase tracking-[0.2em] ${accentText} mb-2`}>
           {prefix}
           {article.contextLabels[0]}
         </p>
-        <p className="text-[11px] text-muted-foreground mb-3">
-          {article.readTime} min de leitura
+        <p className="text-[11px] text-muted-foreground mb-3 flex items-center gap-1.5">
+          <span>{article.dateDisplay}</span>
+          <span aria-hidden>·</span>
+          <span>{article.readTime} min de leitura</span>
         </p>
 
         {/* Título serif */}

@@ -39,13 +39,21 @@ export const allArticles = articles as Article[];
 // --- Imagens editoriais locais (geradas pela Célia) ------------------------
 // Mapa slug -> caminho relativo em /public. Para artigos sem imagem local,
 // o helper getArticleImage() retorna o thumbnail remoto (CloudFront).
-//
-// OBS: imagens locais DESATIVADAS até que os arquivos existam em
-// /public/artigos/dinamica-familiar/. Com o mapa vazio, todos os artigos
-// usam o thumbnail remoto do CloudFront — garantindo proporção e visual
-// uniformes entre TODOS os contextos (incluindo Dinâmica Familiar).
-// Para reativar: coloque os .jpg na pasta e readicione os caminhos aqui.
-const LOCAL_IMAGES: Record<string, string> = {};
+const LOCAL_IMAGES: Record<string, string> = {
+  "o-desafio-de-cuidar-de-pais-idosos-2-m6511": "/imagens/dinamica-familiar/01-o-desafio-de-cuidar-de-pais-idosos.jpg",
+  "ausencia-paterna-m5315": "/imagens/dinamica-familiar/02-voce-sente-ausencia-paterna.jpg",
+  "voce-cuida-sozinha-dos-seus-filhos-2-m528": "/imagens/dinamica-familiar/03-voce-cuida-sozinha-dos-seus-filhos.jpg",
+  "competicao-entre-maes-e-filhas-m6189": "/imagens/dinamica-familiar/04-competicao-entre-maes-e-filhas.jpg",
+  "lei-da-palmada-polemica-construtiva-2-m2038": "/imagens/dinamica-familiar/05-lei-da-palmada-polemica-construtiva.jpg",
+  "familia-em-primeiro-lugar-m2919": "/imagens/dinamica-familiar/06-familia-em-primeiro-lugar.jpg",
+  "que-tipo-de-nora-voce-e-2-m2627": "/imagens/dinamica-familiar/07-que-tipo-de-nora-voce-e.jpg",
+  "que-tipo-de-sogra-voce-e-2-m1405": "/imagens/dinamica-familiar/08-que-tipo-de-sogra-voce-e.jpg",
+  "cumplicidade-entre-irmaos-m388": "/imagens/dinamica-familiar/09-cumplicidade-entre-irmaos.jpg",
+  "avos-modernas-sem-perder-a-docura-m1601": "/imagens/dinamica-familiar/10-avos-modernas-sem-perder-a-docura.jpg",
+  "nao-quero-ter-filhos-e-agora-m1427": "/imagens/dinamica-familiar/11-nao-quero-ter-filhos-e-agora.jpg",
+  "como-deixar-a-culpa-de-lado-m154": "/imagens/dinamica-familiar/12-da-para-deixar-a-culpa-de-lado.jpg",
+  "dicas-para-buscar-o-equilibrio-nesse-delicado-relacionamento-m41": "/imagens/dinamica-familiar/13-pais-e-filhos-adolescentes.jpg",
+};
 
 /**
  * Retorna a imagem de capa do artigo: prioriza imagem editorial local;
