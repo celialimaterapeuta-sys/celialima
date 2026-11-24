@@ -1,48 +1,50 @@
-PACOTE DE ALTERAÇÕES — Site Célia Lima (V9 — refinamentos) ✨
-==============================================================
-Inclui TODAS as alterações feitas até agora + os 2 refinamentos desta versão.
+PACOTE DE ALTERAÇÕES — Site Célia Lima (V10 — refinamentos visuais) ✨
+=====================================================================
+Inclui TODAS as alterações feitas até agora + os 4 refinamentos visuais.
 
-MUDANÇAS DESTA VERSÃO (V9):
-1. Práticas da Caixa de Ferramentas agora usam SVG do contexto correspondente
-   → Cada prática pega o SVG do seu contexto (igual aos cards da home)
-   → Mantém coerência visual + diferenciação entre contextos
-   → Antes: todas as práticas usavam placeholder abstrato igual
-   → Agora: cada prática usa o símbolo do seu contexto (árvore, balança, etc.)
+MUDANÇAS DESTA VERSÃO (V10):
+1. Bento da home: card Espiritualidade voltou pra col-span-2 (antes estava col-span-4)
+   → Agora 7 cards em pares (3 linhas de 2) + 1 par com card extra/citação
+2. Heroes intermediários SEM "saia clara" — gradiente do SVG escurecido na base
+   → Céu escuro total do topo até o fim, transição abrupta pra próxima seção
+3. Cards das listagens (Publicações + Caixa de Ferramentas) com altura menor
+   → Voltou pra proporção 16:10 (paisagem) — mais compactos e elegantes
+4. Datas removidas de TODOS os lugares:
+   → Cards das listagens: só "X min de leitura"
+   → Cabeçalho do artigo: "Por Célia Lima · X min de leitura" (sem data)
+   → Legenda da imagem do artigo: só o nome do contexto (sem data)
+   → Card "artigo da semana" na home: só "X min de leitura"
+   → Cards de artigos relacionados: só "X min de leitura"
 
-2. Formulário de Contato refinado (questões éticas da Célia):
-   - Placeholder da mensagem agora é só "Escreva sua mensagem"
-     (antes pedia "Conte brevemente o que te trouxe aqui...")
-   - Texto do hero: "Conversas mais profundas acontecem por telefone ou
-     presencialmente — o e-mail é só o primeiro oi."
-   - Card lateral "Prefere falar direto?": texto explicando que detalhes
-     pessoais ficam para conversa telefônica/presencial
-   - Botão do card: agora diz "Enviar para o e-mail" (antes era "Abrir WhatsApp")
-   - Botão abre mailto: pra celialima.terapeuta@gmail.com
-   - Info ainda mostra E-mail + WhatsApp pra contato direto
+SOBRE O ALGORITMO DA HOME (pergunta 5):
+- "Artigo da semana" = primeiro artigo da lista articles.json (sem critério de data)
+- "Prática coerente" = primeira prática que compartilha contexto com o artigo
+- Critério mantido simples (pode mudar no futuro se a Célia quiser)
 
 RESUMÃO COMPLETO DE TODAS AS ALTERAÇÕES:
 
 1. PALETA: azul-índigo (#3a4a8c) + dourado (#d4a574)
 2. HERO DA HOME: céu noturno índigo + 150 estrelas + 6 constelações + galáxia
-3. HEROES INTERMEDIÁRIAS: céu escuro total (sem overlay)
-4. CARDS EDITORIAIS: grid 3 colunas com glass-card, TODOS em 4:5 padronizado
-   → Publicações: 67 artigos com foto local (geradas pela Célia)
+3. HEROES INTERMEDIÁRIAS: céu escuro total (sem saia clara)
+4. CARDS EDITORIAIS: grid 3 colunas com glass-card, TODOS em 16:10 (paisagem)
+   → Publicações: 67 artigos com foto local
    → Caixa de Ferramentas: 31 práticas com SVG do contexto correspondente
-5. ARTIGOS E PRÁTICAS: imagem 4:5 entre cabeçalho e texto
-6. BENTO DA HOME: cards alternando direita-esquerda-direita-...
+5. ARTIGOS E PRÁTICAS: imagem 16:10 entre cabeçalho e texto
+6. BENTO DA HOME: 7 cards em pares, alternando direita-esquerda-direita-...
 7. PÁGINA SOBRE: texto novo da Célia + 3 cards de abordagem
 8. CONTATO: WhatsApp +5511974080178 / E-mail celialima.terapeuta@gmail.com
    → Formulário sem pedido de detalhes pessoais (ética)
    → Botão envia por e-mail, não WhatsApp
 9. ATENDIMENTO: "caminhada terapêutica" em dourado
-10. PASTAS ORGANIZADAS: public/artigos/[contexto-slug]/ (7 contextos)
+10. SEM DATAS em nenhum lugar do site
+11. PASTAS ORGANIZADAS: public/artigos/[contexto-slug]/ (7 contextos)
 
 COMO APLICAR:
 
 1. Backup da pasta do projeto local.
 
 2. APAGUE pastas antigas:
-   - public/imagens/ (não é mais usada)
+   - public/imagens/ (não usada)
    - public/artigos/ (será substituída)
 
 3. Extrai o zip DENTRO da pasta do projeto (a que tem package.json).
@@ -51,7 +53,7 @@ COMO APLICAR:
 4. No terminal:
 
    git add .
-   git commit -m "feat: práticas usam SVG do contexto + formulário contato sem detalhes pessoais"
+   git commit -m "feat: refinamentos visuais — sem datas, cards mais baixos, hero escuro total, bento ajustado"
    git push origin v3-indigo-dourado
 
 5. Deploy na Vercel: vercel

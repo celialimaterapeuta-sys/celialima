@@ -6,9 +6,9 @@
   -->
   <defs>
     <linearGradient id="page-sky" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1a2350"/>
-      <stop offset="55%" stop-color="#3a4a8c"/>
-      <stop offset="100%" stop-color="#6478b8"/>
+      <stop offset="0%" stop-color="#0f1638"/>
+      <stop offset="55%" stop-color="#1a2350"/>
+      <stop offset="100%" stop-color="#0f1638"/>
     </linearGradient>
     <radialGradient id="page-glow" cx="80%" cy="20%" r="55%">
       <stop offset="0%" stop-color="#6478b8" stop-opacity="0.28"/>
@@ -223,6 +223,5 @@
     <line x1="1514" y1="64" x2="1526" y2="64"/>
   </g>
 
-  <!-- Fade-out suave para a cor de fundo da página (borda inferior) -->
-  <rect y="500" width="1920" height="100" fill="#f4f5fb" opacity="0.15"/>
+  <!-- Sem fade-out na base — céu escuro total -->
 </svg>

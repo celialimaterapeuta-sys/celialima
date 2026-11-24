@@ -39,8 +39,8 @@ export function ArticleCard({
       href={`${hrefPrefix}/${article.slug}`}
       className="group flex flex-col overflow-hidden rounded-md glass-card lift-on-hover h-full"
     >
-      {/* Imagem no topo — proporção 4:5 (retrato) para TODOS os cards, padronizado */}
-      <div className="relative w-full overflow-hidden aspect-[4/5] bg-muted">
+      {/* Imagem no topo — proporção 16:10 (paisagem) para TODOS os cards, mais compacto */}
+      <div className="relative w-full overflow-hidden aspect-[16/10] bg-muted">
         <Image
           src={imageSrc}
           alt={article.title}
@@ -59,8 +59,6 @@ export function ArticleCard({
           {article.contextLabels[0]}
         </p>
         <p className="text-[11px] text-muted-foreground mb-3 flex items-center gap-1.5">
-          <span>{article.dateDisplay}</span>
-          <span aria-hidden>·</span>
           <span>{article.readTime} min de leitura</span>
         </p>
 

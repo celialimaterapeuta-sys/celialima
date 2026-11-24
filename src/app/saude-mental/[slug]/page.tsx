@@ -98,8 +98,6 @@ export default async function ArtigoPage({ params }: { params: Params }) {
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <span>Por Célia Lima</span>
               <span>·</span>
-              <span>{article.dateDisplay}</span>
-              <span>·</span>
               <span>{article.readTime} min de leitura</span>
             </div>
           </div>
@@ -123,7 +121,7 @@ export default async function ArtigoPage({ params }: { params: Params }) {
                 />
               </div>
               <figcaption className="mt-3 text-[11px] text-muted-foreground text-center tracking-wide">
-                {article.contextLabels[0]} · {article.dateDisplay}
+                {article.contextLabels[0]}
               </figcaption>
             </figure>
           </section>
@@ -256,7 +254,7 @@ export default async function ArtigoPage({ params }: { params: Params }) {
                     className="group flex flex-col"
                   >
                     <p className="text-xs text-muted-foreground mb-2">
-                      {rel.dateDisplay} · {rel.readTime} min
+                      {rel.readTime} min de leitura
                     </p>
                     <h3
                       className="text-xl text-foreground mb-2 group-hover:text-primary transition-colors leading-snug"
