@@ -1,62 +1,57 @@
-PACOTE DE ALTERAÇÕES — Site Célia Lima (VERSÃO 5 — Azul-Índigo) 🌌
-==================================================================
-Inclui TODAS as alterações feitas até agora.
+PACOTE DE ALTERAÇÕES — Site Célia Lima (V9 — refinamentos) ✨
+==============================================================
+Inclui TODAS as alterações feitas até agora + os 2 refinamentos desta versão.
 
-MUDANÇA DESTA VERSÃO (V5):
-- Primary trocado de lilás (#8b6db5) para AZUL-ÍNDIGO (#3a4a8c)
-- Background: azul-acinzentado muito claro (#f4f5fb)
-- Foreground: índigo quase preto (#0f1638) — mais profundo
-- Accent: DOURADO ÂMBAR (#d4a574) — MANTIDO (contraste perfeito)
-- Hero com gradiente índigo profundo (não apaga no mobile!)
-- Dark mode com índigo noturno profundo (#0f1638)
-- SVGs dos 7 contextos atualizados para tons índigo
-- Hero-fundo.svg e hero-paginas.svg com gradiente azul-índigo profundo
+MUDANÇAS DESTA VERSÃO (V9):
+1. Práticas da Caixa de Ferramentas agora usam SVG do contexto correspondente
+   → Cada prática pega o SVG do seu contexto (igual aos cards da home)
+   → Mantém coerência visual + diferenciação entre contextos
+   → Antes: todas as práticas usavam placeholder abstrato igual
+   → Agora: cada prática usa o símbolo do seu contexto (árvore, balança, etc.)
 
-RESUMO DE TODAS AS ALTERAÇÕES DESDE O INÍCIO:
+2. Formulário de Contato refinado (questões éticas da Célia):
+   - Placeholder da mensagem agora é só "Escreva sua mensagem"
+     (antes pedia "Conte brevemente o que te trouxe aqui...")
+   - Texto do hero: "Conversas mais profundas acontecem por telefone ou
+     presencialmente — o e-mail é só o primeiro oi."
+   - Card lateral "Prefere falar direto?": texto explicando que detalhes
+     pessoais ficam para conversa telefônica/presencial
+   - Botão do card: agora diz "Enviar para o e-mail" (antes era "Abrir WhatsApp")
+   - Botão abre mailto: pra celialima.terapeuta@gmail.com
+   - Info ainda mostra E-mail + WhatsApp pra contato direto
 
-1. PALETA DE CORES (V5 — atual)
-   - Background: azul-acinzentado muito claro #f4f5fb
-   - Foreground: índigo quase preto #0f1638
-   - Primary (azul-índigo): #3a4a8c
-   - Accent (dourado âmbar): #d4a574 ← complementar perfeito do índigo
-   - Dark mode: índigo noturno profundo
+RESUMÃO COMPLETO DE TODAS AS ALTERAÇÕES:
 
-2. HERO DA HOME (V5)
-   - Céu noturno ESCURO em azul-índigo profundo (não cinza no mobile!)
-   - 150+ estrelas em 4 tamanhos (poeira estelar → destaque com cruz)
-   - 6 constelações com linhas douradas conectando estrelas
-   - 1 galáxia espiral no canto inferior esquerdo
-   - SEM LUA
-   - Títulos em branco/claro com alto contraste
-   - Detalhes em itálico em dourado (ex: "pensar a vida")
-
-3. PÁGINAS INTERMEDIÁRIAS
-   - Hero com céu índigo + 80+ estrelas + 3 constelações + 1 galáxia sutil
-   - SEM LUA
-   - Títulos em branco com acentos dourados
-
-4. CARDS EDITORIAIS (Publicações + Caixa de Ferramentas)
-   - Grid de 3 colunas no desktop, 1 no mobile
-   - Glass-card com imagem no topo
-   - 13 imagens novas do contexto Dinâmica Familiar
-
-5. ARTIGOS E PRÁTICAS
-   - Imagem editorial centralizada entre o cabeçalho e o texto
-
-6. BENTO DA HOME
-   - Cards alternando direita-esquerda-direita-esquerda-...
+1. PALETA: azul-índigo (#3a4a8c) + dourado (#d4a574)
+2. HERO DA HOME: céu noturno índigo + 150 estrelas + 6 constelações + galáxia
+3. HEROES INTERMEDIÁRIAS: céu escuro total (sem overlay)
+4. CARDS EDITORIAIS: grid 3 colunas com glass-card, TODOS em 4:5 padronizado
+   → Publicações: 67 artigos com foto local (geradas pela Célia)
+   → Caixa de Ferramentas: 31 práticas com SVG do contexto correspondente
+5. ARTIGOS E PRÁTICAS: imagem 4:5 entre cabeçalho e texto
+6. BENTO DA HOME: cards alternando direita-esquerda-direita-...
+7. PÁGINA SOBRE: texto novo da Célia + 3 cards de abordagem
+8. CONTATO: WhatsApp +5511974080178 / E-mail celialima.terapeuta@gmail.com
+   → Formulário sem pedido de detalhes pessoais (ética)
+   → Botão envia por e-mail, não WhatsApp
+9. ATENDIMENTO: "caminhada terapêutica" em dourado
+10. PASTAS ORGANIZADAS: public/artigos/[contexto-slug]/ (7 contextos)
 
 COMO APLICAR:
 
 1. Backup da pasta do projeto local.
 
-2. Extrai o zip DENTRO da pasta do projeto (a que tem package.json).
+2. APAGUE pastas antigas:
+   - public/imagens/ (não é mais usada)
+   - public/artigos/ (será substituída)
+
+3. Extrai o zip DENTRO da pasta do projeto (a que tem package.json).
    Substituir SIM quando perguntar.
 
-3. No terminal, dentro da pasta do projeto:
+4. No terminal:
 
    git add .
-   git commit -m "feat: paleta azul-índigo + dourado com céu profundo"
-   git push origin v3-lilas-dourado  # ou sua branch
+   git commit -m "feat: práticas usam SVG do contexto + formulário contato sem detalhes pessoais"
+   git push origin v3-indigo-dourado
 
-4. A Vercel detecta e faz deploy automático.
+5. Deploy na Vercel: vercel

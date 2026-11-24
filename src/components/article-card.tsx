@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Article } from "@/lib/articles";
-import { getArticleImage, hasLocalImage } from "@/lib/articles";
+import { getArticleImage } from "@/lib/articles";
 
 type Accent = "primary" | "accent";
 
@@ -16,6 +16,9 @@ type ArticleCardProps = {
 /**
  * Card editorial estilo revista literária, com imagem no topo e glass-card.
  * Usado nas listagens de Publicações e Caixa de Ferramentas.
+ *
+ * Todos os cards usam a mesma proporção 4:5 (retrato) — padronização visual
+ * independente da origem da imagem (local ou CloudFront).
  */
 export function ArticleCard({
   article,
@@ -24,7 +27,6 @@ export function ArticleCard({
   hrefPrefix = "/saude-mental",
 }: ArticleCardProps) {
   const imageSrc = getArticleImage(article);
-  const isLocal = hasLocalImage(article);
   const accentText = accent === "primary" ? "text-primary" : "text-accent";
   const accentHover = accent === "primary" ? "group-hover:text-primary" : "group-hover:text-accent";
   const accentBgTag = accent === "primary"
@@ -37,8 +39,8 @@ export function ArticleCard({
       href={`${hrefPrefix}/${article.slug}`}
       className="group flex flex-col overflow-hidden rounded-md glass-card lift-on-hover h-full"
     >
-      {/* Imagem no topo — proporção 4:5 para os com foto editorial, 16:10 para os remotos */}
-      <div className={`relative w-full overflow-hidden ${isLocal ? "aspect-[4/5]" : "aspect-[16/10]"} bg-muted`}>
+      {/* Imagem no topo — proporção 4:5 (retrato) para TODOS os cards, padronizado */}
+      <div className="relative w-full overflow-hidden aspect-[4/5] bg-muted">
         <Image
           src={imageSrc}
           alt={article.title}
@@ -97,3 +99,4 @@ export function ArticleCard({
     </Link>
   );
 }
+

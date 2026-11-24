@@ -19,15 +19,13 @@ type PageHeroProps = {
  * Hero reutilizável para páginas intermediárias (sobre, contato, atendimento,
  * livro, publicações, caixa-de-ferramentas).
  *
- * Visual: fundo SVG do céu noturno com estrelas + overlay gradiente que
- * escurece a base para o texto sobre o fundo escuro ficar legível.
- *
- * O conteúdo é centralizado, com largura máxima padrão de max-w-5xl.
+ * Visual: fundo SVG do céu noturno com estrelas — SEM overlay clareando.
+ * O céu fica escuro do topo à base, com os títulos em branco/dourado.
  */
 export function PageHero({ children, className = "" }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      {/* Imagem de fundo: céu estrelado */}
+      {/* Imagem de fundo: céu estrelado — sem overlay, escuro total */}
       <div className="absolute inset-0">
         <Image
           src="/hero-paginas.svg"
@@ -37,10 +35,7 @@ export function PageHero({ children, className = "" }: PageHeroProps) {
           sizes="100vw"
           priority
         />
-        {/* Overlay para legibilidade — preserva estrelas no topo,
-            transiciona para fundo claro na base do hero */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/30 to-background/95" />
-        {/* Tint lilás-dourado sutil */}
+        {/* Tint índigo-dourado muito sutil — só pra dar unidade */}
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/8 via-transparent to-accent/6" />
         {/* Orbs decorativos — luz suave nas extremidades */}
         <div

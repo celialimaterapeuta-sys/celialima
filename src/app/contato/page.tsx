@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import { MessageCircle, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 
 export default function ContatoPage() {
@@ -10,10 +10,11 @@ export default function ContatoPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Por enquanto: monta link WhatsApp com a mensagem
-    const text = `Olá Célia, meu nome é ${form.name}. ${form.message}`;
-    const url = `https://wa.me/5599999999999?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank");
+    // Envia para o e-mail da Célia — detalhes pessoais só em conversa
+    // telefônica/presencial, por questões éticas.
+    const subject = `Contato pelo site — ${form.name || 'sem nome'}`;
+    const mailtoUrl = `mailto:celialima.terapeuta@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(form.message)}`;
+    window.location.href = mailtoUrl;
     setSent(true);
   }
 
@@ -32,7 +33,8 @@ export default function ContatoPage() {
         </h1>
         <p className="text-lg text-background/85 leading-relaxed max-w-2xl">
           Se algum texto tocou algo, ou se você sente que é hora de começar a terapia,
-          escreva aqui. Respondo pelo WhatsApp, no tempo que a agenda permite.
+          escreva aqui. Conversas mais profundas acontecem por telefone ou
+          presencialmente — o e-mail é só o primeiro oi.
         </p>
       </PageHero>
 
@@ -83,7 +85,7 @@ export default function ContatoPage() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     className="w-full px-4 py-3 bg-card border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                    placeholder="Conte brevemente o que te trouxe aqui. Não precisa de detalhe — só o bastante para começarmos a conversa."
+                    placeholder="Escreva sua mensagem"
                   />
                 </div>
                 <button
@@ -91,21 +93,12 @@ export default function ContatoPage() {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 transition-colors mt-2"
                 >
                   <Send size={16} />
-                  Enviar via WhatsApp
+                  Enviar por e-mail
                 </button>
                 {sent && (
                   <p className="text-sm text-accent">
-                    Abrindo o WhatsApp... Se não abrir automaticamente, clique
-                    <a
-                      href={`https://wa.me/5599999999999?text=${encodeURIComponent(
-                        `Olá Célia, meu nome é ${form.name}. ${form.message}`,
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline ml-1"
-                    >
-                      aqui
-                    </a>.
+                    Abrindo seu app de e-mail... Se não abrir automaticamente, envie
+                    para <strong>celialima.terapeuta@gmail.com</strong>.
                   </p>
                 )}
               </form>
@@ -151,17 +144,21 @@ export default function ContatoPage() {
                 <h3 className="text-lg mb-3" style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 600 }}>
                   Prefere falar direto?
                 </h3>
-                <p className="text-sm text-primary-foreground/90 mb-4">
-                  Se for mais confortável, mande uma mensagem direta no WhatsApp.
+                <p className="text-sm text-primary-foreground/90 mb-3">
+                  Para conversas mais profundas, prefira telefone ou
+                  atendimento presencial — detalhes pessoais ficam para esse
+                  espaço protegido.
+                </p>
+                <p className="text-sm text-primary-foreground/80 mb-4">
+                  <strong>E-mail:</strong> celialima.terapeuta@gmail.com<br/>
+                  <strong>WhatsApp:</strong> +55 11 97408-0178
                 </p>
                 <a
-                  href="https://wa.me/5599999999999"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:celialima.terapeuta@gmail.com"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground text-primary rounded-full text-sm font-medium hover:bg-primary-foreground/90 transition-colors"
                 >
-                  <MessageCircle size={14} />
-                  Abrir WhatsApp
+                  <Send size={14} />
+                  Enviar para o e-mail
                 </a>
               </div>
             </div>
