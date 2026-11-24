@@ -1,9 +1,10 @@
 'use client'
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { Search, ArrowRight, Wrench } from "lucide-react";
+import { Search, Wrench } from "lucide-react";
 import { getPraticas, contexts } from "@/lib/articles";
+import { ArticleCard } from "@/components/article-card";
+import { PageHero } from "@/components/page-hero";
 
 export default function CaixaDeFerramentasPage() {
   const [query, setQuery] = useState("");
@@ -31,31 +32,28 @@ export default function CaixaDeFerramentasPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-24">
-          <div className="flex items-start gap-4 mb-6">
-            <Wrench size={28} className="text-accent mt-1" />
-            <p className="text-xs uppercase tracking-[0.25em] text-accent pt-2">
-              Caixa de Ferramentas
-            </p>
-          </div>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-6 max-w-3xl"
-            style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
-          >
-            O que você pode fazer
-            <span className="italic text-accent"> agora.</span>
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Exercícios, técnicas e cuidados que você pode aplicar sozinho —
-            respiração, florais, óleos essenciais, exercícios de proteção. Sempre
-            como complemento, nunca como substituto do acompanhamento
-            profissional.
+      <PageHero>
+        <div className="flex items-start gap-4 mb-6">
+          <Wrench size={28} className="text-accent mt-1" />
+          <p className="text-xs uppercase tracking-[0.25em] text-accent pt-2">
+            Caixa de Ferramentas
           </p>
         </div>
-      </section>
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-6 max-w-3xl"
+          style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
+        >
+          O que você pode fazer
+          <span className="italic text-accent"> agora.</span>
+        </h1>
+        <p className="text-lg text-background/85 leading-relaxed max-w-2xl">
+          Exercícios, técnicas e cuidados que você pode aplicar sozinho —
+          respiração, florais, óleos essenciais, exercícios de proteção. Sempre
+          como complemento, nunca como substituto do acompanhamento
+          profissional.
+        </p>
+      </PageHero>
 
-      {/* Busca + filtros */}
       <section className="border-b border-border bg-muted/20">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center">
@@ -86,7 +84,6 @@ export default function CaixaDeFerramentasPage() {
         </div>
       </section>
 
-      {/* Lista */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
           {filtered.length === 0 ? (
@@ -102,45 +99,15 @@ export default function CaixaDeFerramentasPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filtered.map((article) => (
-                <Link
+                <ArticleCard
                   key={article.slug}
-                  href={`/caixa-de-ferramentas/${article.slug}`}
-                  className="group flex flex-col border-b border-border pb-8 last:border-0"
-                >
-                  <p className="text-xs uppercase tracking-[0.2em] text-accent mb-2">
-                    Prática · {article.contextLabels[0]}
-                  </p>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    {article.dateDisplay} · {article.readTime} min
-                  </p>
-                  <h2
-                    className="text-2xl md:text-[1.65rem] text-foreground mb-3 group-hover:text-accent transition-colors leading-snug"
-                    style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
-                  >
-                    {article.title}
-                  </h2>
-                  {/* Tags abaixo do título */}
-                  {article.tags && article.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                      {article.tags.slice(0, 4).map((tag, i) => (
-                        <span
-                          key={i}
-                          className="text-[10px] px-2 py-0.5 bg-accent/8 text-accent/80 border border-accent/15 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  <p className="text-base text-muted-foreground leading-relaxed line-clamp-3 mb-4">
-                    {article.summary}
-                  </p>
-                  <p className="mt-auto inline-flex items-center gap-1 text-xs text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                    Ver prática <ArrowRight size={12} />
-                  </p>
-                </Link>
+                  article={article}
+                  accent="accent"
+                  prefix="Prática · "
+                  hrefPrefix="/caixa-de-ferramentas"
+                />
               ))}
             </div>
           )}

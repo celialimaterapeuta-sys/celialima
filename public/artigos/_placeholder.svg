@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <!--
+    Placeholder editorial para artigos sem foto local.
+    Mesma paleta do site (índigo + dourado), com estrelas e círculos
+    dourados dispersos — funciona como "card cósmico abstrato".
+  -->
+  <defs>
+    <linearGradient id="ph-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2350"/>
+      <stop offset="50%" stop-color="#3a4a8c"/>
+      <stop offset="100%" stop-color="#6478b8"/>
+    </linearGradient>
+    <radialGradient id="ph-glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#e6c285" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#e6c285" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fundo gradiente -->
+  <rect width="800" height="1000" fill="url(#ph-bg)"/>
+
+  <!-- Glow dourado central sutil -->
+  <circle cx="400" cy="400" r="350" fill="url(#ph-glow)"/>
+
+  <!-- Estrelas espalhadas -->
+  <g fill="#f4f5fb">
+    <circle cx="120" cy="180" r="1.8" opacity="0.85"/>
+    <circle cx="280" cy="120" r="1.4" opacity="0.7"/>
+    <circle cx="450" cy="200" r="2.0" opacity="0.9"/>
+    <circle cx="620" cy="140" r="1.6" opacity="0.75"/>
+    <circle cx="700" cy="280" r="1.4" opacity="0.7"/>
+    <circle cx="80" cy="350" r="1.5" opacity="0.7"/>
+    <circle cx="180" cy="450" r="1.7" opacity="0.8"/>
+    <circle cx="380" cy="380" r="1.4" opacity="0.65"/>
+    <circle cx="540" cy="480" r="1.8" opacity="0.85"/>
+    <circle cx="680" cy="520" r="1.5" opacity="0.7"/>
+    <circle cx="140" cy="650" r="1.6" opacity="0.75"/>
+    <circle cx="320" cy="720" r="1.4" opacity="0.65"/>
+    <circle cx="500" cy="680" r="1.7" opacity="0.8"/>
+    <circle cx="650" cy="800" r="1.5" opacity="0.7"/>
+    <circle cx="220" cy="850" r="1.4" opacity="0.65"/>
+    <circle cx="420" cy="900" r="1.6" opacity="0.75"/>
+    <circle cx="600" cy="950" r="1.4" opacity="0.65"/>
+    <!-- Estrelas pequenas (poeira) -->
+    <circle cx="60" cy="80" r="0.7" opacity="0.45"/>
+    <circle cx="200" cy="60" r="0.6" opacity="0.4"/>
+    <circle cx="380" cy="90" r="0.7" opacity="0.45"/>
+    <circle cx="560" cy="60" r="0.6" opacity="0.4"/>
+    <circle cx="720" cy="100" r="0.7" opacity="0.45"/>
+    <circle cx="100" cy="250" r="0.6" opacity="0.4"/>
+    <circle cx="240" cy="280" r="0.7" opacity="0.45"/>
+    <circle cx="490" cy="320" r="0.6" opacity="0.4"/>
+    <circle cx="640" cy="380" r="0.7" opacity="0.45"/>
+    <circle cx="40" cy="500" r="0.6" opacity="0.4"/>
+    <circle cx="280" cy="540" r="0.7" opacity="0.45"/>
+    <circle cx="440" cy="560" r="0.6" opacity="0.4"/>
+    <circle cx="760" cy="600" r="0.7" opacity="0.45"/>
+    <circle cx="100" cy="750" r="0.6" opacity="0.4"/>
+    <circle cx="380" cy="780" r="0.7" opacity="0.45"/>
+    <circle cx="540" cy="820" r="0.6" opacity="0.4"/>
+    <circle cx="700" cy="880" r="0.7" opacity="0.45"/>
+  </g>
+
+  <!-- Círculos dourados decorativos sobrepostos (alquimia/junguiano) -->
+  <g fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.5">
+    <circle cx="400" cy="500" r="220"/>
+    <circle cx="400" cy="500" r="160" opacity="0.7"/>
+    <circle cx="400" cy="500" r="100" opacity="0.85"/>
+  </g>
+  <circle cx="400" cy="500" r="4" fill="#e6c285" opacity="0.9"/>
+
+  <!-- Pequena estrela-cruz dourada central -->
+  <g stroke="#e6c285" stroke-width="0.8" opacity="0.7">
+    <line x1="400" y1="488" x2="400" y2="512"/>
+    <line x1="388" y1="500" x2="412" y2="500"/>
+  </g>
+</svg>

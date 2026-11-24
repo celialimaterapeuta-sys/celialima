@@ -14,10 +14,12 @@ import {
  * Layout no desktop (grid lg: 4 cols):
  *  Row 1 — Citação Tom Zé     (col-span-4)  · full width
  *  Row 2 — ctx[0] + ctx[1]    (col-span-2 + col-span-2) · featured
- *  Row 3 — ctx[2] + ctx[3] + ctx[4]  (1 + 1 + 2)         · compact + compact + featured
- *  Row 4 — ctx[5] + ctx[6]    (col-span-2 + col-span-2) · featured
+ *  Row 3 — ctx[2] + ctx[3]    (col-span-2 + col-span-2) · featured
+ *  Row 4 — ctx[4] + ctx[5]    (col-span-2 + col-span-2) · featured
+ *  Row 5 — ctx[6] + citação extra (col-span-2 + col-span-2) · featured
  *
- * No tablet (md: 2 cols): citação full, demais col-span-1 (par a par)
+ * Imagem alterna a cada card: direita, esquerda, direita, esquerda, ...
+ * No tablet (md: 2 cols): mesma lógica de pares (col-span-1)
  * No mobile: tudo stacked em 1 col
  * ------------------------------------------------------------------------- */
 
@@ -26,8 +28,8 @@ type BentoCfg = { span: string; featured: boolean };
 const bentoConfig: BentoCfg[] = [
   { span: "lg:col-span-2", featured: true },   // 0 — Dinâmica Familiar
   { span: "lg:col-span-2", featured: true },   // 1 — Relacionamentos
-  { span: "lg:col-span-1", featured: false },  // 2 — Ansiedade (compact)
-  { span: "lg:col-span-1", featured: false },  // 3 — Autocrítica (compact)
+  { span: "lg:col-span-2", featured: true },   // 2 — Ansiedade
+  { span: "lg:col-span-2", featured: true },   // 3 — Autocrítica
   { span: "lg:col-span-2", featured: true },   // 4 — Psicossomáticos
   { span: "lg:col-span-2", featured: true },   // 5 — Produtividade
   { span: "lg:col-span-2", featured: true },   // 6 — Espiritualidade
@@ -54,34 +56,37 @@ export default function Home() {
             sizes="100vw"
             priority
           />
-          {/* Gradientes em camadas pra profundidade (não mais overlay sólido) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/55 to-background/92" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/12 via-transparent to-accent/12" />
+          {/* Gradientes em camadas pra profundidade — preserva estrelas
+              (overlay só no topo e na base, meio fica escuro p/ estrelas) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/15" />
+          {/* Tint lilás-dourado bem sutil */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/8 via-transparent to-accent/6" />
           {/* Orbs decorativos — luz suave nas extremidades */}
           <div
-            className="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-primary/15 blur-3xl pointer-events-none"
+            className="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-primary/12 blur-3xl pointer-events-none"
             aria-hidden="true"
           />
           <div
-            className="absolute -bottom-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-accent/15 blur-3xl pointer-events-none"
+            className="absolute -bottom-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-accent/12 blur-3xl pointer-events-none"
             aria-hidden="true"
           />
         </div>
 
         <HeroStagger className="relative mx-auto max-w-4xl px-6 lg:px-8 py-32 md:py-44 text-center">
-          <HeroItem className="text-xs uppercase tracking-[0.25em] text-primary mb-6">
+          <HeroItem className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
             <p>Psicoterapia · Autoconhecimento</p>
           </HeroItem>
 
-          <HeroItem className="text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] mb-8">
+          <HeroItem className="text-5xl md:text-6xl lg:text-7xl text-background leading-[1.05] mb-8">
             <h1 style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}>
               Um espaço para
-              <span className="block italic text-primary">pensar a vida</span>
+              <span className="block italic text-accent">pensar a vida</span>
               <span className="block">com mais gentileza.</span>
             </h1>
           </HeroItem>
 
-          <HeroItem className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-10 max-w-2xl mx-auto">
+          <HeroItem className="text-lg md:text-xl text-background/85 leading-relaxed mb-10 max-w-2xl mx-auto">
             <p>
               Psicoterapia e práticas que conversam com você sobre amor,
               família, corpo, trabalho e espiritualidade — no ritmo próprio de
@@ -92,14 +97,14 @@ export default function Home() {
           <HeroItem className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contato"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium shadow-md transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-primary/90"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-full text-sm font-medium shadow-md transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-accent/90"
             >
               <MessageCircle size={16} />
               Agendar conversa
             </Link>
             <Link
               href="/atendimento"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-primary/40 text-primary bg-background/70 backdrop-blur-sm rounded-full text-sm font-medium transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-primary hover:text-primary-foreground"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-background/30 text-background bg-background/10 backdrop-blur-sm rounded-full text-sm font-medium transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-background hover:text-foreground"
             >
               Conheça meu trabalho
               <ArrowRight size={16} />
@@ -281,8 +286,6 @@ export default function Home() {
                     {artigoDaSemana.summary}
                   </p>
                   <div className="mt-auto flex items-center gap-3 text-xs text-muted-foreground">
-                    <span>{artigoDaSemana.dateDisplay}</span>
-                    <span aria-hidden="true">·</span>
                     <span>{artigoDaSemana.readTime} min de leitura</span>
                   </div>
                 </Link>
@@ -294,7 +297,7 @@ export default function Home() {
                   <Link
                     href={`/caixa-de-ferramentas/${praticaCoerente.slug}`}
                     className="group rounded-xl block p-8 h-full border border-accent/30 bg-accent/15 backdrop-blur-md transition-all hover:border-accent/60 hover:-translate-y-1 hover:shadow-lg"
-                    style={{ boxShadow: "0 10px 30px -14px rgb(122 138 91 / 0.25)" }}
+                    style={{ boxShadow: "0 10px 30px -14px rgb(212 165 116 / 0.25)" }}
                   >
                     <p className="text-xs uppercase tracking-[0.2em] text-accent mb-3">
                       Da Caixa de Ferramentas · para fazer agora

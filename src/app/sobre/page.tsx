@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { PageHero } from "@/components/page-hero";
 
 export const metadata = {
   title: "Sobre",
@@ -11,10 +12,9 @@ export const metadata = {
 export default function SobrePage() {
   return (
     <div className="flex flex-col">
-      {/* Intro */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-28">
-          <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
+      {/* Hero com céu estrelado */}
+      <PageHero>
+        <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
             <div className="relative">
               <div className="relative w-full max-w-xs mx-auto">
                 {/* Foto circular com fundo transparente — sem moldura extra, a própria foto já tem acabamento */}
@@ -32,17 +32,17 @@ export default function SobrePage() {
               </div>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary mb-6">
+              <p className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
                 Sobre
               </p>
               <h1
-                className="text-4xl md:text-5xl text-foreground leading-[1.1] mb-8"
+                className="text-4xl md:text-5xl text-background leading-[1.1] mb-8"
                 style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
               >
                 Célia Lima
-                <span className="block italic text-primary mt-1">Psicoterapeuta</span>
+                <span className="block italic text-accent mt-1">Psicoterapeuta</span>
               </h1>
-              <div className="space-y-5 text-base md:text-lg text-foreground/85 leading-relaxed">
+              <div className="space-y-5 text-base md:text-lg text-background/85 leading-relaxed">
                 <p>
                   Sou psicoterapeuta com mais de 30 anos de prática clínica.
                   Acompanho pessoas em seus processos emocionais com uma escuta
@@ -50,32 +50,36 @@ export default function SobrePage() {
                   pelo ritmo próprio de cada um.
                 </p>
                 <p>
-                  Minha escrita nasceu da prática: cada texto partiu de uma
-                  situação concreta vivida no consultório — uma dor, uma
-                  pergunta, um impasse — e ganhou forma para conversar com
-                  mais gente do que aqueles que conseguem sentar na poltrona
-                  da terapia.
+                  Trabalho com psicoterapia de orientação junguiana e psicosíntese,
+                  terapias integrativas (imaginação ativa, respiração, florais
+                  vibracionais) e uma escuta que integra razão e emoção. Quando eu
+                  te escuto, você se escuta. São as perguntas certas que conduzem
+                  você às suas respostas, a esse encontro com quem você
+                  verdadeiramente é. E é nessa jornada que você vai ver sua vida
+                  se transformar, ganhar leveza e segurança se assim você desejar.
                 </p>
                 <p>
-                  Trabalho com <strong>psicoterapia de orientação junguiana
-                  e psicosíntese</strong>, <strong>terapias integrativas</strong>
-                  {' '}(florais, óleos essenciais, respiração) e uma escuta que
-                  integra razão e emoção. Meu foco é ajudar você a reconhecer
-                  os movimentos internos que se repetem — e a encontrar,
-                  dentro de si, o fio do qual dar um novo passo.
+                  Meus artigos condensam vários temas da vida e estão reunidos
+                  também no livro{" "}
+                  <em className="text-accent not-italic font-medium">Caminhos do Autoconhecimento</em>.
+                  É uma leitura que pode ser um despertador para situações que
+                  estejam adormecidas dentro de você, mas que exigem um olhar mais
+                  atento e resolutivo. Falar de amor, sobre família, saúde,
+                  trabalho, espiritualidade, luto... talvez em algum lugar desses
+                  estejam suas angústias prontas para serem dissolvidas nesse
+                  trabalho conjunto e acolhedor que podemos iniciar quando você
+                  desejar.
                 </p>
                 <p>
-                  Ao longo dessa trajetória publiquei{" "}
-                  <strong>uma reunião dos meus principais artigos</strong> sobre autoconhecimento, amor,
-                  família, saúde, trabalho e espiritualidade — reunidos hoje
-                  neste site e no livro{" "}
-                  <em>Caminhos do Autoconhecimento</em>.
+                  Mas se você desejar apenas um canto de encontro para trocar
+                  ideias, para aprender e ensinar, para reativar sua criatividade
+                  e exercitar seu senso de humor, esta pode ser também uma
+                  escolha valiosa.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Método */}
       <section className="border-b border-border bg-muted/20">
@@ -98,8 +102,8 @@ export default function SobrePage() {
               <p className="text-sm text-foreground/80 leading-relaxed">
                 Antes de qualquer técnica, a escuta. O espaço onde você pode
                 falar sem medo de julgamento, e onde o silêncio também é
-                palavra. Aquilo que ainda não consegue ser dito costuma ser
-                o mais importante.
+                palavra. Aquilo que ainda não consegue ser dito pode ser
+                o mais significativo.
               </p>
             </div>
             <div>
@@ -109,7 +113,7 @@ export default function SobrePage() {
               <p className="text-sm text-foreground/80 leading-relaxed">
                 O inconsciente fala por imagens, não por palavras. Um sonho,
                 um sintoma do corpo, uma frase que escapa — tudo isso é
-                linguagem. A terapia aprende a ler essa linguagem.
+                linguagem. A terapia caminha também por essa linguagem.
               </p>
             </div>
             <div>
@@ -117,10 +121,9 @@ export default function SobrePage() {
                 Integrativo
               </h3>
               <p className="text-sm text-foreground/80 leading-relaxed">
-                Florais, óleos essenciais, respiração colorida: recursos
+                Florais, respiração colorida, imaginação ativa: recursos
                 que conversam com o corpo quando só a palavra não dá conta.
-                Sempre como complemento, nunca como substituto da escuta e
-                do trabalho psicológico.
+                São ferramentas complementares ao trabalho terapêutico.
               </p>
             </div>
           </div>

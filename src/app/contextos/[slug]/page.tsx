@@ -107,8 +107,19 @@ export default async function ContextoPage({ params }: { params: Params }) {
                         href={`/saude-mental/${a.slug}`}
                         className="group block"
                       >
+                        {/* Imagem do artigo */}
+                        {a.thumbnail && (
+                          <div className="relative aspect-[16/10] mb-3 overflow-hidden rounded-sm bg-muted">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={a.thumbnail}
+                              alt={a.title}
+                              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                        )}
                         <p className="text-xs text-muted-foreground mb-1">
-                          {a.dateDisplay} · {a.readTime} min
+                          {a.readTime} min de leitura
                         </p>
                         <h3
                           className="text-lg text-foreground mb-2 group-hover:text-primary transition-colors leading-snug"
@@ -156,7 +167,7 @@ export default async function ContextoPage({ params }: { params: Params }) {
                         className="group block"
                       >
                         <p className="text-xs text-muted-foreground mb-1">
-                          {p.dateDisplay} · {p.readTime} min
+                          {p.readTime} min de leitura
                         </p>
                         <h3
                           className="text-lg text-foreground mb-2 group-hover:text-accent transition-colors leading-snug"
