@@ -1,5 +1,4 @@
-﻿@'
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, BookOpen } from "lucide-react";
 import { HeroStagger, HeroItem, FadeIn } from "@/components/home/motion";
@@ -380,5 +379,4 @@ export default function Home() {
       </section>
     </div>
   );
-}
-'@ | Set-Content -Path "src\app\page.tsx" -Encoding utf8
+  }
