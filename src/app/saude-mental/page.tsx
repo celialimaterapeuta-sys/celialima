@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
@@ -38,13 +38,13 @@ export default function SaudeMentalPage() {
           Publicações
         </p>
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-8 max-w-4xl"
+          className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-8 max-w-4xl"
           style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
         >
           Histórias e reflexões
           <span className="italic text-accent"> de consultório.</span>
         </h1>
-        <div className="max-w-3xl space-y-5 text-base md:text-lg text-background/85 leading-relaxed">
+        <div className="max-w-3xl space-y-5 text-base md:text-lg text-foreground/85 leading-relaxed">
           <p>
             Em mais de três décadas ouvindo as dores e angústias no meu
             espaço, decidi transformar as experiências dessa trajetória em
@@ -53,7 +53,7 @@ export default function SaudeMentalPage() {
             vida mais plena e íntegra — num processo de autoconhecimento
             conduzido com leveza, acolhimento e gentileza.
           </p>
-          <p className="italic text-background/70">
+          <p className="italic text-muted-foreground">
             — Célia Lima
           </p>
         </div>
@@ -122,3 +122,4 @@ export default function SaudeMentalPage() {
     </div>
   );
 }
+

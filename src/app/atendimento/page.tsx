@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight, MessageCircle, MapPin, Video } from "lucide-react";
 import { services } from "@/lib/articles";
 import { PageHero } from "@/components/page-hero";
@@ -18,13 +18,13 @@ export default function AtendimentoPage() {
           Atendimento
         </p>
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-8 max-w-3xl"
+          className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-8 max-w-3xl"
           style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
         >
           Como atuo na
           <span className="italic text-accent"> caminhada terapêutica.</span>
         </h1>
-        <div className="space-y-5 text-lg text-background/85 leading-relaxed max-w-3xl">
+        <div className="space-y-5 text-lg text-foreground/85 leading-relaxed max-w-3xl">
           <p>
             Com mais de 30 anos de experiência em psicoterapias de orientação
             junguiana e psicosíntese, meu foco é apoiar você a olhar para a
@@ -185,3 +185,4 @@ export default function AtendimentoPage() {
     </div>
   );
 }
+

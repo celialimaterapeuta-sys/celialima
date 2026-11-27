@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { BookOpen, Download, FileText } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 
@@ -44,15 +44,15 @@ export default function LivroPage() {
                 Livro gratuito
               </p>
               <h1
-                className="text-4xl md:text-5xl text-background leading-[1.1] mb-6"
+                className="text-4xl md:text-5xl text-foreground leading-[1.1] mb-6"
                 style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
               >
                 Caminhos do Autoconhecimento
               </h1>
-              <p className="text-lg text-background/70 italic leading-relaxed mb-6">
+              <p className="text-lg text-muted-foreground italic leading-relaxed mb-6">
                 Textos de uma trajetória terapêutica — uma reunião dos meus principais artigos publicados
               </p>
-              <p className="text-base text-background/85 leading-relaxed mb-8">
+              <p className="text-base text-foreground/85 leading-relaxed mb-8">
                 Uma coletânea que reúne os meus principais artigos publicados ao longo de mais de
                 uma década de prática clínica. Organizados por áreas da vida —
                 autoconhecimento, amor, família, saúde, trabalho e
@@ -179,3 +179,4 @@ export default function LivroPage() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useMemo, useState } from "react";
 import { Search, Wrench } from "lucide-react";
@@ -40,13 +40,13 @@ export default function CaixaDeFerramentasPage() {
           </p>
         </div>
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-6 max-w-3xl"
+          className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-6 max-w-3xl"
           style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
         >
           O que você pode fazer
           <span className="italic text-accent"> agora.</span>
         </h1>
-        <p className="text-lg text-background/85 leading-relaxed max-w-2xl">
+        <p className="text-lg text-foreground/85 leading-relaxed max-w-2xl">
           Exercícios, técnicas e cuidados que você pode aplicar sozinho —
           respiração, florais, óleos essenciais, exercícios de proteção. Sempre
           como complemento, nunca como substituto do acompanhamento
@@ -116,3 +116,4 @@ export default function CaixaDeFerramentasPage() {
     </div>
   );
 }
+

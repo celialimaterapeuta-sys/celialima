@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
@@ -36,13 +36,13 @@ export default function SobrePage() {
                 Sobre
               </p>
               <h1
-                className="text-4xl md:text-5xl text-background leading-[1.1] mb-8"
+                className="text-4xl md:text-5xl text-foreground leading-[1.1] mb-8"
                 style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
               >
                 Célia Lima
                 <span className="block italic text-accent mt-1">Psicoterapeuta</span>
               </h1>
-              <div className="space-y-5 text-base md:text-lg text-background/85 leading-relaxed">
+              <div className="space-y-5 text-base md:text-lg text-foreground/85 leading-relaxed">
                 <p>
                   Sou psicoterapeuta com mais de 30 anos de prática clínica.
                   Acompanho pessoas em seus processos emocionais com uma escuta
@@ -158,3 +158,4 @@ export default function SobrePage() {
     </div>
   );
 }
+
