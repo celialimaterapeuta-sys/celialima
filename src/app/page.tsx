@@ -74,14 +74,14 @@ export default function Home() {
         </div>
 
         <HeroStagger className="relative mx-auto max-w-4xl px-6 lg:px-8 py-32 md:py-44 text-center">
-          <HeroItem className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
+          <HeroItem className="text-xs uppercase tracking-[0.25em] text-primary mb-6">
             <p>Psicoterapia · Autoconhecimento</p>
           </HeroItem>
 
           <HeroItem className="text-5xl md:text-6xl lg:text-7xl text-background leading-[1.05] mb-8">
             <h1 style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}>
               Um espaço para
-              <span className="block italic text-accent">pensar a vida</span>
+              <span className="block italic text-foreground hover:text-primary transition-colors">pensar a vida</span>
               <span className="block">com mais gentileza.</span>
             </h1>
           </HeroItem>
@@ -97,7 +97,7 @@ export default function Home() {
           <HeroItem className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/contato"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-full text-sm font-medium shadow-md transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-accent/90"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium shadow-md transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-primary/90"
             >
               <MessageCircle size={16} />
               Agendar conversa
