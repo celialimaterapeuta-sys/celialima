@@ -1,4 +1,5 @@
-﻿import Link from "next/link";
+﻿@'
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, BookOpen } from "lucide-react";
 import { HeroStagger, HeroItem, FadeIn } from "@/components/home/motion";
@@ -20,38 +21,35 @@ const bentoConfig: BentoCfg[] = [
   { span: "lg:col-span-2", featured: true },
 ];
 
-function TituloComEnfase({
+function EnfaseDuasPalavras({
   texto,
-  indicesDestaque = [0, 1],
+  indices = [0, 1],
   className = "",
   as: Tag = "h2",
 }: {
   texto: string;
-  indicesDestaque?: number[];
+  indices?: number[];
   className?: string;
   as?: "h1" | "h2" | "h3";
 }) {
   const palavras = texto.trim().split(/\s+/);
-  const setDestaque = new Set(indicesDestaque);
+  const destaque = new Set(indices);
 
   return (
     <Tag
       className={`text-foreground ${className}`}
       style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
     >
-      {palavras.map((palavra, idx) => {
-        const emDestaque = setDestaque.has(idx);
-        return (
-          <span key={`${palavra}-${idx}`}>
-            {emDestaque ? (
-              <span className="italic text-primary">{palavra}</span>
-            ) : (
-              <span>{palavra}</span>
-            )}
-            {idx < palavras.length - 1 ? " " : ""}
-          </span>
-        );
-      })}
+      {palavras.map((palavra, idx) => (
+        <span key={`${palavra}-${idx}`}>
+          {destaque.has(idx) ? (
+            <span className="italic text-primary">{palavra}</span>
+          ) : (
+            <span>{palavra}</span>
+          )}
+          {idx < palavras.length - 1 ? " " : ""}
+        </span>
+      ))}
     </Tag>
   );
 }
@@ -91,11 +89,11 @@ export default function Home() {
             <p>Psicoterapia · Autoconhecimento</p>
           </HeroItem>
 
-          <HeroItem className="text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] mb-8 max-w-2xl mx-auto">
-  <         h1 style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}>
-            <span className="block">Um espaço para</span>
-            <span className="block italic text-primary">pensar a vida</span>
-            <span className="block">com mais gentileza.</span>
+          <HeroItem className="text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] mb-8">
+            <h1 style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}>
+              <span className="block">Um espaço para</span>
+              <span className="block italic text-primary">pensar a vida</span>
+              <span className="block">com mais gentileza.</span>
             </h1>
           </HeroItem>
 
@@ -141,10 +139,10 @@ export default function Home() {
             <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4">
               Por onde começar
             </p>
-            <TituloComEnfase
+            <EnfaseDuasPalavras
               as="h2"
               texto="O que te trouxe aqui?"
-              indicesDestaque={[2, 3]}
+              indices={[2, 3]}
               className="text-3xl md:text-4xl mb-4"
             />
             <p className="text-muted-foreground leading-relaxed">
@@ -222,10 +220,10 @@ export default function Home() {
                         imgRight ? "md:order-1" : "md:order-2"
                       }`}
                     >
-                      <TituloComEnfase
+                      <EnfaseDuasPalavras
                         as="h3"
                         texto={ctx.label}
-                        indicesDestaque={[0, 1]}
+                        indices={[0, 1]}
                         className={`mb-2 group-hover:text-primary transition-colors ${
                           cfg.featured ? "text-xl md:text-2xl" : "text-lg"
                         }`}
@@ -256,10 +254,10 @@ export default function Home() {
               <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4">
                 Publicação da semana
               </p>
-              <TituloComEnfase
+              <EnfaseDuasPalavras
                 as="h2"
                 texto="Para começar a ler."
-                indicesDestaque={[2, 3]}
+                indices={[2, 3]}
                 className="text-3xl md:text-4xl mb-12"
               />
             </FadeIn>
@@ -273,10 +271,10 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-[0.2em] text-primary mb-3">
                     Publicação · {artigoDaSemana.contextLabels[0]}
                   </p>
-                  <TituloComEnfase
+                  <EnfaseDuasPalavras
                     as="h3"
                     texto={artigoDaSemana.title}
-                    indicesDestaque={[0, 1]}
+                    indices={[0, 1]}
                     className="text-2xl md:text-3xl mb-4 group-hover:text-primary transition-colors leading-snug"
                   />
                   <p className="text-base text-muted-foreground leading-relaxed mb-4 line-clamp-4">
@@ -298,10 +296,10 @@ export default function Home() {
                     <p className="text-xs uppercase tracking-[0.2em] text-primary mb-3">
                       Da Caixa de Ferramentas · para fazer agora
                     </p>
-                    <TituloComEnfase
+                    <EnfaseDuasPalavras
                       as="h3"
                       texto={praticaCoerente.title}
-                      indicesDestaque={[0, 1]}
+                      indices={[0, 1]}
                       className="text-2xl md:text-3xl mb-4 group-hover:text-primary transition-colors leading-snug"
                     />
                     <p className="text-base text-muted-foreground leading-relaxed mb-4 line-clamp-4">
@@ -331,10 +329,10 @@ export default function Home() {
                 className="group glass-card lift-on-hover rounded-xl block p-8 h-full"
               >
                 <BookOpen size={28} className="text-primary mb-4" />
-                <TituloComEnfase
+                <EnfaseDuasPalavras
                   as="h3"
                   texto="Caminhos do Autoconhecimento"
-                  indicesDestaque={[0, 2]}
+                  indices={[0, 2]}
                   className="text-2xl mb-3 group-hover:text-primary transition-colors"
                 />
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
@@ -383,3 +381,4 @@ export default function Home() {
     </div>
   );
 }
+'@ | Set-Content -Path "src\app\page.tsx" -Encoding utf8
