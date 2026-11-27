@@ -91,12 +91,12 @@ export default function Home() {
             <p>Psicoterapia · Autoconhecimento</p>
           </HeroItem>
 
-          <HeroItem className="text-5xl md:text-6xl lg:text-7xl leading-[1.08] mb-8">
-            <TituloComEnfase
-              as="h1"
-              texto="Um espaço para pensar a vida com mais gentileza."
-              indicesDestaque={[3, 4]}
-            />
+          <HeroItem className="text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] mb-8 max-w-2xl mx-auto">
+  <         h1 style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}>
+            <span className="block">Um espaço para</span>
+            <span className="block italic text-primary">pensar a vida</span>
+            <span className="block">com mais gentileza.</span>
+            </h1>
           </HeroItem>
 
           <HeroItem className="text-lg md:text-xl text-foreground/85 leading-relaxed mb-10 max-w-2xl mx-auto">
