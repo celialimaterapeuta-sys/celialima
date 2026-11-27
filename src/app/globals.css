@@ -47,67 +47,67 @@
 :root {
   --radius: 0.5rem;
 
-  /* Acolhedor terapêutico — lilás + dourado (céu noturno estrelado) */
-  --background: #f5f3fb;          /* lavanda muito clara */
-  --foreground: #2a2440;          /* roxo-azulado escuro (noite) */
+  /* Acolhedor terapêutico — azul-índigo + dourado (céu noturno profundo) */
+  --background: #f4f5fb;          /* azul-acinzentado muito claro */
+  --foreground: #0f1638;          /* índigo quase preto (noite profunda) */
   --card: #ffffff;
-  --card-foreground: #2a2440;
+  --card-foreground: #0f1638;
   --popover: #ffffff;
-  --popover-foreground: #2a2440;
-  --primary: #8b6db5;              /* lilás médio */
-  --primary-foreground: #f5f3fb;
-  --secondary: #ebe6f5;            /* lavanda média */
-  --secondary-foreground: #2a2440;
-  --muted: #efeaf8;
-  --muted-foreground: #6e6789;     /* roxo-acinzentado suave */
-  --accent: #d4a574;               /* dourado âmbar — complementar do lilás */
-  --accent-foreground: #2a2440;
+  --popover-foreground: #0f1638;
+  --primary: #3a4a8c;              /* azul-índigo médio */
+  --primary-foreground: #f4f5fb;
+  --secondary: #e8eaf5;            /* azul-acinzentado médio */
+  --secondary-foreground: #0f1638;
+  --muted: #edeef8;
+  --muted-foreground: #5a6489;     /* azul-acinzentado suave */
+  --accent: #d4a574;               /* dourado âmbar — complementar do índigo */
+  --accent-foreground: #0f1638;
   --destructive: #a33b3b;
-  --border: #ddd5ea;               /* lavanda-acinzentada */
-  --input: #ddd5ea;
-  --ring: #8b6db5;
-  --chart-1: #8b6db5;              /* lilás */
+  --border: #d8dbeb;               /* azul-acinzentado borda */
+  --input: #d8dbeb;
+  --ring: #3a4a8c;
+  --chart-1: #3a4a8c;              /* índigo */
   --chart-2: #d4a574;              /* dourado */
-  --chart-3: #6e6789;              /* roxo suave */
-  --chart-4: #c3bcd9;              /* lavanda clara */
-  --chart-5: #a890d0;              /* lilás mais saturado */
-  --sidebar: #efeaf8;
-  --sidebar-foreground: #2a2440;
-  --sidebar-primary: #8b6db5;
-  --sidebar-primary-foreground: #f5f3fb;
+  --chart-3: #5a6489;              /* azul suave */
+  --chart-4: #b8bdd8;              /* azul claro */
+  --chart-5: #6478b8;              /* índigo mais saturado */
+  --sidebar: #edeef8;
+  --sidebar-foreground: #0f1638;
+  --sidebar-primary: #3a4a8c;
+  --sidebar-primary-foreground: #f4f5fb;
   --sidebar-accent: #d4a574;
-  --sidebar-accent-foreground: #2a2440;
-  --sidebar-border: #ddd5ea;
-  --sidebar-ring: #8b6db5;
+  --sidebar-accent-foreground: #0f1638;
+  --sidebar-border: #d8dbeb;
+  --sidebar-ring: #3a4a8c;
 }
 
 .dark {
-  --background: #1f1a2e;          /* roxo noturno profundo */
-  --foreground: #f5f3fb;
-  --card: #2d2640;
-  --card-foreground: #f5f3fb;
-  --popover: #2d2640;
-  --popover-foreground: #f5f3fb;
-  --primary: #b9a0e0;              /* lilás claro */
-  --primary-foreground: #1f1a2e;
-  --secondary: #3a3354;
-  --secondary-foreground: #f5f3fb;
-  --muted: #3a3354;
-  --muted-foreground: #c3bcd9;
+  --background: #0f1638;          /* índigo noturno profundo */
+  --foreground: #f4f5fb;
+  --card: #1a2350;
+  --card-foreground: #f4f5fb;
+  --popover: #1a2350;
+  --popover-foreground: #f4f5fb;
+  --primary: #6478b8;              /* índigo claro */
+  --primary-foreground: #0f1638;
+  --secondary: #2a3470;
+  --secondary-foreground: #f4f5fb;
+  --muted: #2a3470;
+  --muted-foreground: #b8bdd8;
   --accent: #e6c285;               /* dourado claro */
-  --accent-foreground: #1f1a2e;
+  --accent-foreground: #0f1638;
   --destructive: #b85454;
-  --border: #4a4167;
-  --input: #4a4167;
-  --ring: #b9a0e0;
-  --sidebar: #2d2640;
-  --sidebar-foreground: #f5f3fb;
-  --sidebar-primary: #b9a0e0;
-  --sidebar-primary-foreground: #1f1a2e;
-  --sidebar-accent: #5fc8c8;
-  --sidebar-accent-foreground: #1f1a2e;
-  --sidebar-border: #4a4167;
-  --sidebar-ring: #b9a0e0;
+  --border: #3a4480;
+  --input: #3a4480;
+  --ring: #6478b8;
+  --sidebar: #1a2350;
+  --sidebar-foreground: #f4f5fb;
+  --sidebar-primary: #6478b8;
+  --sidebar-primary-foreground: #0f1638;
+  --sidebar-accent: #e6c285;
+  --sidebar-accent-foreground: #0f1638;
+  --sidebar-border: #3a4480;
+  --sidebar-ring: #6478b8;
 }
 
 @layer base {
@@ -211,8 +211,8 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgb(255 255 255 / 0.45);
     box-shadow:
-      0 1px 2px rgb(42 36 64 / 0.04),
-      0 10px 30px -12px rgb(42 36 64 / 0.12);
+      0 1px 2px rgb(15 22 56 / 0.04),
+      0 10px 30px -12px rgb(15 22 56 / 0.12);
     transition:
       box-shadow 0.3s ease,
       border-color 0.3s ease,
@@ -221,8 +221,8 @@
   .glass-card:hover {
     border-color: rgb(255 255 255 / 0.7);
     box-shadow:
-      0 2px 4px rgb(42 36 64 / 0.06),
-      0 24px 48px -16px rgb(42 36 64 / 0.22);
+      0 2px 4px rgb(15 22 56 / 0.06),
+      0 24px 48px -16px rgb(15 22 56 / 0.22);
   }
 
   /* Vidro fosco mais denso — para cards com texto mais longo */
@@ -232,8 +232,8 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgb(255 255 255 / 0.55);
     box-shadow:
-      0 1px 2px rgb(42 36 64 / 0.05),
-      0 14px 40px -14px rgb(42 36 64 / 0.16);
+      0 1px 2px rgb(15 22 56 / 0.05),
+      0 14px 40px -14px rgb(15 22 56 / 0.16);
     transition:
       box-shadow 0.3s ease,
       border-color 0.3s ease,
@@ -242,8 +242,8 @@
   .glass-card-strong:hover {
     border-color: rgb(255 255 255 / 0.8);
     box-shadow:
-      0 2px 4px rgb(42 36 64 / 0.07),
-      0 30px 60px -18px rgb(42 36 64 / 0.26);
+      0 2px 4px rgb(15 22 56 / 0.07),
+      0 30px 60px -18px rgb(15 22 56 / 0.26);
   }
 
   /* Lift suave no hover — aplicado em conjunto com glass-card */
