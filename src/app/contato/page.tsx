@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
-import { PageHero } from "@/components/page-hero";
 
 export default function ContatoPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -21,22 +20,22 @@ export default function ContatoPage() {
   return (
     <div className="flex flex-col">
       {/* Hero com céu estrelado */}
-      <PageHero>
-        <p className="text-xs uppercase tracking-[0.25em] text-accent mb-6">
+      <section className="border-b border-border bg-muted/20"><div className="mx-auto max-w-5xl px-6 lg:px-8 py-14 md:py-16">
+        <p className="text-xs uppercase tracking-[0.25em] text-primary font-medium mb-6">
           Contato
         </p>
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl text-background leading-[1.1] mb-6 max-w-3xl"
+          className="text-4xl md:text-5xl lg:text-6xl text-foreground hover:text-primary transition-colors leading-[1.1] mb-6 max-w-3xl"
           style={{ fontFamily: 'var(--font-fraunces)', fontWeight: 500 }}
         >
           Vamos conversar.
         </h1>
-        <p className="text-lg text-background/85 leading-relaxed max-w-2xl">
+        <p className="text-lg text-foreground/85 leading-relaxed max-w-2xl">
           Se algum texto tocou algo, ou se você sente que é hora de começar a terapia,
           escreva aqui. Conversas mais profundas acontecem por telefone ou
           presencialmente — o e-mail é só o primeiro oi.
         </p>
-      </PageHero>
+      </div></section>
 
       <section className="border-b border-border">
         <div className="mx-auto max-w-5xl px-6 lg:px-8 py-16 md:py-20">
