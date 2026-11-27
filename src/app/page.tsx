@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, BookOpen } from "lucide-react";
 import { HeroStagger, HeroItem, FadeIn } from "@/components/home/motion";
@@ -8,32 +8,53 @@ import {
   getPraticasRelacionadas,
 } from "@/lib/articles";
 
-/* ---------------------------------------------------------------------------
- * Bento config — 7 contextos + card de citação (8 total)
- *
- * Layout no desktop (grid lg: 4 cols):
- *  Row 1 — Citação Tom Zé     (col-span-4)  · full width
- *  Row 2 — ctx[0] + ctx[1]    (col-span-2 + col-span-2) · featured
- *  Row 3 — ctx[2] + ctx[3]    (col-span-2 + col-span-2) · featured
- *  Row 4 — ctx[4] + ctx[5]    (col-span-2 + col-span-2) · featured
- *  Row 5 — ctx[6] + citação extra (col-span-2 + col-span-2) · featured
- *
- * Imagem alterna a cada card: direita, esquerda, direita, esquerda, ...
- * No tablet (md: 2 cols): mesma lógica de pares (col-span-1)
- * No mobile: tudo stacked em 1 col
- * ------------------------------------------------------------------------- */
-
 type BentoCfg = { span: string; featured: boolean };
 
 const bentoConfig: BentoCfg[] = [
-  { span: "lg:col-span-2", featured: true },   // 0 — Dinâmica Familiar
-  { span: "lg:col-span-2", featured: true },   // 1 — Relacionamentos
-  { span: "lg:col-span-2", featured: true },   // 2 — Ansiedade
-  { span: "lg:col-span-2", featured: true },   // 3 — Autocrítica
-  { span: "lg:col-span-2", featured: true },   // 4 — Psicossomáticos
-  { span: "lg:col-span-2", featured: true },   // 5 — Produtividade
-  { span: "lg:col-span-2", featured: true },   // 6 — Espiritualidade
+  { span: "lg:col-span-2", featured: true },
+  { span: "lg:col-span-2", featured: true },
+  { span: "lg:col-span-2", featured: true },
+  { span: "lg:col-span-2", featured: true },
+  { span: "lg:col-span-2", featured: true },
+  { span: "lg:col-span-2", featured: true },
+  { span: "lg:col-span-2", featured: true },
 ];
+
+function TituloComEnfase({
+  texto,
+  indicesDestaque = [0, 1],
+  className = "",
+  as: Tag = "h2",
+}: {
+  texto: string;
+  indicesDestaque?: number[];
+  className?: string;
+  as?: "h1" | "h2" | "h3";
+}) {
+  const palavras = texto.trim().split(/\s+/);
+  const setDestaque = new Set(indicesDestaque);
+
+  return (
+    <Tag
+      className={`text-foreground ${className}`}
+      style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
+    >
+      {palavras.map((palavra, idx) => {
+        const emDestaque = setDestaque.has(idx);
+        return (
+          <span key={`${palavra}-${idx}`}>
+            {emDestaque ? (
+              <span className="italic text-primary">{palavra}</span>
+            ) : (
+              <span>{palavra}</span>
+            )}
+            {idx < palavras.length - 1 ? " " : ""}
+          </span>
+        );
+      })}
+    </Tag>
+  );
+}
 
 export default function Home() {
   const artigoDaSemana = getRecentArtigos(1)[0];
@@ -43,9 +64,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* ===================================================================
-          HERO — imagem de fundo + overlay rico + orbs + fade-in escalonado
-      =================================================================== */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -56,19 +74,14 @@ export default function Home() {
             sizes="100vw"
             priority
           />
-          {/* Gradientes em camadas pra profundidade — preserva estrelas
-              (overlay só no topo e na base, meio fica escuro p/ estrelas) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/15" />
-          {/* Tint lilás-dourado bem sutil */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/8 via-transparent to-accent/6" />
-          {/* Orbs decorativos — luz suave nas extremidades */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-background/65 to-background/90" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/5" />
           <div
             className="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-primary/12 blur-3xl pointer-events-none"
             aria-hidden="true"
           />
           <div
-            className="absolute -bottom-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-accent/12 blur-3xl pointer-events-none"
+            className="absolute -bottom-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-primary/10 blur-3xl pointer-events-none"
             aria-hidden="true"
           />
         </div>
@@ -78,15 +91,15 @@ export default function Home() {
             <p>Psicoterapia · Autoconhecimento</p>
           </HeroItem>
 
-          <HeroItem className="text-5xl md:text-6xl lg:text-7xl text-background leading-[1.05] mb-8">
-            <h1 style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}>
-              Um espaço para
-              <span className="block italic text-foreground hover:text-primary transition-colors">pensar a vida</span>
-              <span className="block">com mais gentileza.</span>
-            </h1>
+          <HeroItem className="text-5xl md:text-6xl lg:text-7xl leading-[1.08] mb-8">
+            <TituloComEnfase
+              as="h1"
+              texto="Um espaço para pensar a vida com mais gentileza."
+              indicesDestaque={[3, 4]}
+            />
           </HeroItem>
 
-          <HeroItem className="text-lg md:text-xl text-background/85 leading-relaxed mb-10 max-w-2xl mx-auto">
+          <HeroItem className="text-lg md:text-xl text-foreground/85 leading-relaxed mb-10 max-w-2xl mx-auto">
             <p>
               Psicoterapia e práticas que conversam com você sobre amor,
               família, corpo, trabalho e espiritualidade — no ritmo próprio de
@@ -104,7 +117,7 @@ export default function Home() {
             </Link>
             <Link
               href="/atendimento"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-background/30 text-background bg-background/10 backdrop-blur-sm rounded-full text-sm font-medium transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-background hover:text-foreground"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-primary/40 text-primary bg-background/75 backdrop-blur-sm rounded-full text-sm font-medium transition-all hover:scale-[1.04] active:scale-[0.98] hover:bg-primary hover:text-primary-foreground"
             >
               Conheça meu trabalho
               <ArrowRight size={16} />
@@ -113,32 +126,27 @@ export default function Home() {
         </HeroStagger>
       </section>
 
-      {/* ===================================================================
-          BENTO GRID — Citação + 7 contextos
-      =================================================================== */}
       <section className="relative border-b border-border bg-muted/20 overflow-hidden">
-        {/* Orbs decorativos de fundo */}
         <div
           className="absolute top-32 -left-40 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"
           aria-hidden="true"
         />
         <div
-          className="absolute bottom-40 -right-40 w-96 h-96 rounded-full bg-accent/5 blur-3xl pointer-events-none"
+          className="absolute bottom-40 -right-40 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"
           aria-hidden="true"
         />
 
         <div className="relative mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-24">
-          {/* Cabeçalho da seção */}
           <FadeIn className="mb-12 max-w-2xl">
             <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4">
               Por onde começar
             </p>
-            <h2
-              className="text-3xl md:text-4xl text-foreground mb-4"
-              style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
-            >
-              O que te trouxe aqui?
-            </h2>
+            <TituloComEnfase
+              as="h2"
+              texto="O que te trouxe aqui?"
+              indicesDestaque={[2, 3]}
+              className="text-3xl md:text-4xl mb-4"
+            />
             <p className="text-muted-foreground leading-relaxed">
               Cada contexto reúne textos e práticas que conversam com uma dor,
               uma pergunta ou um momento da vida. Comece pela epígrafe — e
@@ -146,9 +154,7 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          {/* Bento grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-            {/* Card especial: citação do Tom Zé — full width */}
             <FadeIn className="md:col-span-2 lg:col-span-4">
               <div className="glass-card-strong rounded-xl p-8 md:p-12 flex flex-col justify-center relative overflow-hidden h-full min-h-[180px]">
                 <span
@@ -173,10 +179,8 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            {/* Cards de contexto (bento) */}
             {contexts.map((ctx, i) => {
               const cfg = bentoConfig[i] ?? { span: "lg:col-span-1", featured: false };
-              // Alterna lado da imagem nos cards featured — espelhamento visual
               const imgRight = i % 2 === 0;
 
               return (
@@ -185,7 +189,6 @@ export default function Home() {
                     href={`/contextos/${ctx.slug}`}
                     className="group glass-card lift-on-hover rounded-xl overflow-hidden flex flex-col md:flex-row h-full min-h-[260px] block"
                   >
-                    {/* Imagem (à direita ou à esquerda, alternando) */}
                     <div
                       className={`relative flex-shrink-0 ${
                         cfg.featured
@@ -204,7 +207,6 @@ export default function Home() {
                             : "(max-width: 768px) 100vw, 25vw"
                         }
                       />
-                      {/* Gradient overlay que mistura imagem no vidro */}
                       <div
                         className={`absolute inset-0 ${
                           imgRight
@@ -215,20 +217,19 @@ export default function Home() {
                       />
                     </div>
 
-                    {/* Conteúdo */}
                     <div
                       className={`flex-1 p-5 md:p-6 flex flex-col justify-center ${
                         imgRight ? "md:order-1" : "md:order-2"
                       }`}
                     >
-                      <h3
-                        className={`text-foreground mb-2 group-hover:text-primary transition-colors ${
+                      <TituloComEnfase
+                        as="h3"
+                        texto={ctx.label}
+                        indicesDestaque={[0, 1]}
+                        className={`mb-2 group-hover:text-primary transition-colors ${
                           cfg.featured ? "text-xl md:text-2xl" : "text-lg"
                         }`}
-                        style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
-                      >
-                        {ctx.label}
-                      </h3>
+                      />
                       <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-3">
                         {ctx.description}
                       </p>
@@ -244,9 +245,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================================================================
-          ARTIGO DA SEMANA + PRÁTICA COERENTE
-      =================================================================== */}
       {artigoDaSemana && (
         <section className="relative border-b border-border overflow-hidden">
           <div
@@ -258,16 +256,15 @@ export default function Home() {
               <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4">
                 Publicação da semana
               </p>
-              <h2
-                className="text-3xl md:text-4xl text-foreground mb-12"
-                style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
-              >
-                Para começar a ler.
-              </h2>
+              <TituloComEnfase
+                as="h2"
+                texto="Para começar a ler."
+                indicesDestaque={[2, 3]}
+                className="text-3xl md:text-4xl mb-12"
+              />
             </FadeIn>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Artigo da semana — glass card forte (texto longo) */}
               <FadeIn delay={0.05}>
                 <Link
                   href={`/saude-mental/${artigoDaSemana.slug}`}
@@ -276,12 +273,12 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-[0.2em] text-primary mb-3">
                     Publicação · {artigoDaSemana.contextLabels[0]}
                   </p>
-                  <h3
-                    className="text-2xl md:text-3xl text-foreground mb-4 group-hover:text-primary transition-colors leading-snug"
-                    style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
-                  >
-                    {artigoDaSemana.title}
-                  </h3>
+                  <TituloComEnfase
+                    as="h3"
+                    texto={artigoDaSemana.title}
+                    indicesDestaque={[0, 1]}
+                    className="text-2xl md:text-3xl mb-4 group-hover:text-primary transition-colors leading-snug"
+                  />
                   <p className="text-base text-muted-foreground leading-relaxed mb-4 line-clamp-4">
                     {artigoDaSemana.summary}
                   </p>
@@ -291,23 +288,22 @@ export default function Home() {
                 </Link>
               </FadeIn>
 
-              {/* Prática coerente — verde sálvia com tratamento glass */}
               {praticaCoerente && (
                 <FadeIn delay={0.12}>
                   <Link
                     href={`/caixa-de-ferramentas/${praticaCoerente.slug}`}
                     className="group glass-card lift-on-hover rounded-xl block p-8 h-full"
-                    style={{ boxShadow: "0 10px 30px -14px rgb(212 165 116 / 0.25)" }}
+                    style={{ boxShadow: "0 10px 30px -14px rgb(160 90 60 / 0.22)" }}
                   >
                     <p className="text-xs uppercase tracking-[0.2em] text-primary mb-3">
                       Da Caixa de Ferramentas · para fazer agora
                     </p>
-                    <h3
-                      className="text-2xl md:text-3xl text-foreground mb-4 group-hover:text-primary transition-colors leading-snug"
-                      style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
-                    >
-                      {praticaCoerente.title}
-                    </h3>
+                    <TituloComEnfase
+                      as="h3"
+                      texto={praticaCoerente.title}
+                      indicesDestaque={[0, 1]}
+                      className="text-2xl md:text-3xl mb-4 group-hover:text-primary transition-colors leading-snug"
+                    />
                     <p className="text-base text-muted-foreground leading-relaxed mb-4 line-clamp-4">
                       {praticaCoerente.summary}
                     </p>
@@ -322,9 +318,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* ===================================================================
-          CTA LIVRO + WHATSAPP
-      =================================================================== */}
       <section className="relative border-b border-border bg-muted/30 overflow-hidden">
         <div
           className="absolute -bottom-20 left-1/4 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"
@@ -332,19 +325,18 @@ export default function Home() {
         />
         <div className="relative mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Card do livro — glass card leve */}
             <FadeIn>
               <Link
                 href="/livro"
                 className="group glass-card lift-on-hover rounded-xl block p-8 h-full"
               >
                 <BookOpen size={28} className="text-primary mb-4" />
-                <h3
-                  className="text-2xl text-foreground mb-3 group-hover:text-primary transition-colors"
-                  style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
-                >
-                  Caminhos do Autoconhecimento
-                </h3>
+                <TituloComEnfase
+                  as="h3"
+                  texto="Caminhos do Autoconhecimento"
+                  indicesDestaque={[0, 2]}
+                  className="text-2xl mb-3 group-hover:text-primary transition-colors"
+                />
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   Uma reunião dos meus principais artigos publicados ao longo de
                   mais de uma década de prática clínica. Download gratuito.
@@ -355,7 +347,6 @@ export default function Home() {
               </Link>
             </FadeIn>
 
-            {/* Card WhatsApp — terracota sólido com orb decorativo */}
             <FadeIn
               delay={0.08}
               className="relative rounded-xl p-8 bg-primary text-primary-foreground overflow-hidden"
