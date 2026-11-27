@@ -296,14 +296,14 @@ export default function Home() {
                 <FadeIn delay={0.12}>
                   <Link
                     href={`/caixa-de-ferramentas/${praticaCoerente.slug}`}
-                    className="group rounded-xl block p-8 h-full border border-accent/30 bg-accent/15 backdrop-blur-md transition-all hover:border-accent/60 hover:-translate-y-1 hover:shadow-lg"
+                    className="group glass-card lift-on-hover rounded-xl block p-8 h-full"
                     style={{ boxShadow: "0 10px 30px -14px rgb(212 165 116 / 0.25)" }}
                   >
-                    <p className="text-xs uppercase tracking-[0.2em] text-accent mb-3">
+                    <p className="text-xs uppercase tracking-[0.2em] text-primary mb-3">
                       Da Caixa de Ferramentas · para fazer agora
                     </p>
                     <h3
-                      className="text-2xl md:text-3xl text-foreground mb-4 group-hover:text-accent transition-colors leading-snug"
+                      className="text-2xl md:text-3xl text-foreground mb-4 group-hover:text-primary transition-colors leading-snug"
                       style={{ fontFamily: "var(--font-fraunces)", fontWeight: 500 }}
                     >
                       {praticaCoerente.title}
