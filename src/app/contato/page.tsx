@@ -1,44 +1,22 @@
-@'
-'use client'
+﻿'use client'
 
 import { useState } from "react";
 import { Send, MessageCircle } from "lucide-react";
 
 export default function ContatoPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [sent, setSent] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("sending");
-
-    try {
-      const response = await fetch(
-        "https://formsubmit.co/ajax/celialima.terapeuta@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email || "nao-informado@site.local",
-            message: form.message,
-            _subject: `Contato pelo site — ${form.name || "sem nome"}`,
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Falha no envio");
-      }
-
-      setForm({ name: "", email: "", message: "" });
-      setStatus("sent");
-    } catch {
-      setStatus("error");
-    }
+    const subject = `Contato pelo site — ${form.name || "sem nome"}`;
+    const bodyLines = [
+      form.message,
+      form.email ? `\nE-mail de retorno: ${form.email}` : "",
+    ].join("");
+    const mailtoUrl = `mailto:celimalima@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines)}`;
+    window.location.href = mailtoUrl;
+    setSent(true);
   }
 
   return (
@@ -57,7 +35,7 @@ export default function ContatoPage() {
           <p className="text-lg text-foreground/85 leading-relaxed max-w-2xl">
             Se algum texto tocou algo, ou se você sente que é hora de começar a terapia,
             escreva aqui. Conversas mais profundas acontecem por telefone ou
-            presencialmente — a mensagem é só o primeiro oi.
+            presencialmente — o e-mail é só o primeiro oi.
           </p>
         </div>
       </section>
@@ -113,20 +91,15 @@ export default function ContatoPage() {
                 </div>
                 <button
                   type="submit"
-                  disabled={status === "sending"}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 transition-colors mt-2 disabled:opacity-60"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 transition-colors mt-2"
                 >
                   <Send size={16} />
-                  {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+                  Enviar por e-mail
                 </button>
-                {status === "sent" && (
-                  <p className="text-sm text-primary font-medium">
-                    Mensagem enviada com sucesso. Obrigada pelo contato!
-                  </p>
-                )}
-                {status === "error" && (
+                {sent && (
                   <p className="text-sm text-primary">
-                    Não foi possível enviar agora. Você também pode falar direto pelo WhatsApp +55 11 97408-0178.
+                    Abrindo seu app de e-mail... Se não abrir automaticamente, envie
+                    para <strong>celimalima@gmail.com</strong>.
                   </p>
                 )}
               </form>
@@ -177,17 +150,17 @@ export default function ContatoPage() {
                   espaço protegido.
                 </p>
                 <p className="text-sm text-primary-foreground/85 mb-4">
-                  <strong>E-mail:</strong> celialima.terapeuta@gmail.com<br />
+                  <strong>E-mail:</strong> celimalima@gmail.com<br />
                   <strong>WhatsApp:</strong> +55 11 97408-0178
                 </p>
                 <a
-                  href="https://wa.me/5511974080178"
+                  href="https://api.whatsapp.com/send?phone=5511974080178"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground text-primary rounded-full text-sm font-medium hover:bg-primary-foreground/90 transition-colors"
                 >
                   <MessageCircle size={14} />
-                  Fale direto comigo
+                  Fale Comigo
                 </a>
               </div>
             </div>
@@ -197,4 +170,3 @@ export default function ContatoPage() {
     </div>
   );
 }
-'@ | Set-Content -Path "src\app\contato\page.tsx" -Encoding utf8
