@@ -3,20 +3,43 @@
 import { useState } from "react";
 import { Send, MessageCircle } from "lucide-react";
 
+const DESTINO_EMAIL = "celialima.terapeuta@gmail.com";
+
 export default function ContatoPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = `Contato pelo site — ${form.name || "sem nome"}`;
-    const bodyLines = [
-      form.message,
-      form.email ? `\nE-mail de retorno: ${form.email}` : "",
-    ].join("");
-    const mailtoUrl = `mailto:celimalima@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines)}`;
-    window.location.href = mailtoUrl;
-    setSent(true);
+    setStatus("sending");
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${DESTINO_EMAIL}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email || "nao-informado@site.local",
+            message: form.message,
+            _subject: `Contato pelo site — ${form.name || "sem nome"}`,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Falha no envio");
+      }
+
+      setForm({ name: "", email: "", message: "" });
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -35,7 +58,7 @@ export default function ContatoPage() {
           <p className="text-lg text-foreground/85 leading-relaxed max-w-2xl">
             Se algum texto tocou algo, ou se você sente que é hora de começar a terapia,
             escreva aqui. Conversas mais profundas acontecem por telefone ou
-            presencialmente — o e-mail é só o primeiro oi.
+            presencialmente — a mensagem é só o primeiro oi.
           </p>
         </div>
       </section>
@@ -86,20 +109,25 @@ export default function ContatoPage() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     className="w-full px-4 py-3 bg-card border border-border rounded-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                    placeholder="Escreva sua mensagem"
+                    placeholder="Envie sua mensagem aqui!"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 transition-colors mt-2"
+                  disabled={status === "sending"}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 transition-colors mt-2 disabled:opacity-60"
                 >
                   <Send size={16} />
-                  Enviar por e-mail
+                  {status === "sending" ? "Enviando..." : "Enviar mensagem"}
                 </button>
-                {sent && (
+                {status === "sent" && (
+                  <p className="text-sm text-primary font-medium">
+                    Mensagem enviada com sucesso. Obrigada pelo contato!
+                  </p>
+                )}
+                {status === "error" && (
                   <p className="text-sm text-primary">
-                    Abrindo seu app de e-mail... Se não abrir automaticamente, envie
-                    para <strong>celimalima@gmail.com</strong>.
+                    Não foi possível enviar agora. Você também pode falar direto pelo WhatsApp +55 11 97408-0178.
                   </p>
                 )}
               </form>
@@ -150,7 +178,7 @@ export default function ContatoPage() {
                   espaço protegido.
                 </p>
                 <p className="text-sm text-primary-foreground/85 mb-4">
-                  <strong>E-mail:</strong> celimalima@gmail.com<br />
+                  <strong>E-mail:</strong> {DESTINO_EMAIL}<br />
                   <strong>WhatsApp:</strong> +55 11 97408-0178
                 </p>
                 <a
